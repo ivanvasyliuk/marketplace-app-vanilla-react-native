@@ -1,5 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import BrowseNavigator from './BrowseNavigator';
+import SavedNavigator from './SavedNavigator';
 import screens from './screens';
 
 const Tab = createBottomTabNavigator();
@@ -15,6 +16,13 @@ const AppTabNavigator = () => {
         component={BrowseNavigator}
         options={{
           tabBarLabel: 'Browse',
+        }}
+      />
+      <Tab.Screen
+        name={screens.SavedTab}
+        component={SavedNavigator}
+        options={{
+          tabBarLabel: 'Saved',
         }}
       />
     </Tab.Navigator>

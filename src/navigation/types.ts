@@ -1,3 +1,5 @@
+import screens from './screens';
+
 export type BrowseStackNavigatorParamList = {};
 
 export type BottomTabNavigatorParamList = {
@@ -5,4 +7,6 @@ export type BottomTabNavigatorParamList = {
   Feed: undefined;
   Settings: undefined;
 };
-export type RootStackNavigatorParamList = {};
+export type RootStackNavigatorParamList = {
+  [screens.MainApp]: {};
+};
