@@ -1,8 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text} from 'react-native';
 import BrowseNavigator from './BrowseNavigator';
+import TabBar from './components/TabBar';
 import CreatePostNavigator from './CreatePostNavigator';
 import InboxNavigator from './InboxNavigator';
+import ProfileNavigator from './ProfileNavigator';
 import SavedNavigator from './SavedNavigator';
 import screens from './screens';
 import {BottomTabNavigatorParamList} from './types';
@@ -12,6 +14,9 @@ const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 const AppTabNavigator = () => {
   return (
     <Tab.Navigator
+      tabBar={props => {
+        return <TabBar props={props} />;
+      }}
       screenOptions={{
         headerShown: false,
       }}>
@@ -45,13 +50,13 @@ const AppTabNavigator = () => {
           tabBarLabel: 'Inbox',
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name={screens.ProfileTab}
         component={ProfileNavigator}
         options={{
           tabBarLabel: 'Profile',
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 };

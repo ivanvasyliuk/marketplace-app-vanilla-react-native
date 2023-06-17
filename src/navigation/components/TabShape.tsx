@@ -1,6 +1,6 @@
-import React from "react";
-import Svg, { Circle, Mask, Rect } from "react-native-svg";
-import { TAB_BAR_HEIGHT_SIZE, width } from "../../styles/dimensions";
+import React from 'react';
+import Svg, {Circle, Mask, Rect} from 'react-native-svg';
+import {TAB_BAR_HEIGHT_SIZE, width} from '../../styles/dimensions';
 
 export default function TabShape() {
   return (

@@ -7,6 +7,7 @@ export type BottomTabNavigatorParamList = {
   [screens.SavedTab]: undefined;
   [screens.InboxTab]: undefined;
   [screens.CreatePostTab]: undefined;
+  [screens.ProfileTab]: undefined;
 };
 export type RootStackNavigatorParamList = {
   [screens.MainApp]: {};

@@ -1,11 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import { StyleSheet, Text } from "react-native";
-import Touchable from "../../components/Touchable/Touchable";
+import React from 'react';
+import {StyleSheet, Text} from 'react-native';
+import Touchable from '../../components/Touchable/Touchable';
 
 const CancelButton = () => {
-  const navigation = useNavigation();
-
   function onPress() {
     //Doing something
   }
@@ -25,7 +22,7 @@ const styles = StyleSheet.create({
   cancelButtonLabel: {
     height: 18,
     fontSize: 16,
-    color: "green",
+    color: 'green',
   },
 });
 
