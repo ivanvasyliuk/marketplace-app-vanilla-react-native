@@ -10,7 +10,7 @@ import {
 const isAndroid = Platform.OS === 'android';
 
 interface ITouchableProps extends TouchableNativeFeedbackProps {
-  isOpacity: boolean;
+  isOpacity?: boolean;
   children: JSX.Element;
 }
 

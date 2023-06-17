@@ -3,9 +3,10 @@ import screens from './screens';
 export type BrowseStackNavigatorParamList = {};
 
 export type BottomTabNavigatorParamList = {
-  Browse: BrowseStackNavigatorParamList;
-  Feed: undefined;
-  Settings: undefined;
+  [screens.BrowseTab]: undefined;
+  [screens.SavedTab]: undefined;
+  [screens.InboxTab]: undefined;
+  [screens.CreatePostTab]: undefined;
 };
 export type RootStackNavigatorParamList = {
   [screens.MainApp]: {};

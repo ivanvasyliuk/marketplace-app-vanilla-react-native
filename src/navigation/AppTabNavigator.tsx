@@ -1,9 +1,13 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Text} from 'react-native';
 import BrowseNavigator from './BrowseNavigator';
+import CreatePostNavigator from './CreatePostNavigator';
+import InboxNavigator from './InboxNavigator';
 import SavedNavigator from './SavedNavigator';
 import screens from './screens';
+import {BottomTabNavigatorParamList} from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 
 const AppTabNavigator = () => {
   return (
@@ -25,6 +29,29 @@ const AppTabNavigator = () => {
           tabBarLabel: 'Saved',
         }}
       />
+      <Tab.Screen
+        name={screens.CreatePostTab}
+        component={CreatePostNavigator}
+        options={{
+          headerTitle: props => <Text>New Post</Text>,
+          tabBarButton: props => true,
+          tabBarLabel: () => null,
+        }}
+      />
+      <Tab.Screen
+        name={screens.InboxTab}
+        component={InboxNavigator}
+        options={{
+          tabBarLabel: 'Inbox',
+        }}
+      />
+      {/* <Tab.Screen
+        name={screens.ProfileTab}
+        component={ProfileNavigator}
+        options={{
+          tabBarLabel: 'Profile',
+        }}
+      /> */}
     </Tab.Navigator>
   );
 };

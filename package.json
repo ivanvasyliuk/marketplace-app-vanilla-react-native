@@ -15,6 +15,7 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@react-navigation/stack": "^6.3.16",
+    "formik": "^2.4.2",
     "mirror-to-object-pairs": "^2.0.0",
     "mobx-react": "^7.6.0",
     "react": "18.2.0",
@@ -24,7 +25,8 @@
     "react-native-reanimated": "^3.3.0",
     "react-native-safe-area-context": "^4.5.3",
     "react-native-screens": "^3.21.0",
-    "react-native-svg": "^13.9.0"
+    "react-native-svg": "^13.9.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
