@@ -6,8 +6,9 @@ import ProfileScreenAnimated from '../screens/Profile/ProfileScreenAnimated';
 // import PostNavigation from './PostNavigation';
 // import SettingsNavigator from './SettingsNavigator';
 import screens from './screens';
+import {ProfileStackNavigatorParamList} from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<ProfileStackNavigatorParamList>();
 
 function ProfileNavigator() {
   // const store = useStore();

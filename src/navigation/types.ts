@@ -1,6 +1,20 @@
 import screens from './screens';
 
-export type BrowseStackNavigatorParamList = {};
+export type BrowseStackNavigatorParamList = {
+  [screens.Browse]: undefined;
+};
+export type ProfileStackNavigatorParamList = {
+  [screens.Profile]: undefined;
+};
+export type InboxStackNavigatorParamList = {
+  [screens.Inbox]: undefined;
+};
+export type SavedStackNavigatorParamList = {
+  [screens.Saved]: undefined;
+};
+export type CreatePostStackNavigatorParamList = {
+  [screens.CreatePost]: undefined;
+};
 
 export type BottomTabNavigatorParamList = {
   [screens.BrowseTab]: undefined;

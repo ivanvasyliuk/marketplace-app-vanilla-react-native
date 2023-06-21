@@ -1,4 +1,3 @@
-import {RouteProp} from '@react-navigation/native';
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -8,7 +7,6 @@ import {TAB_BAR_HEIGHT_SIZE, width} from '../../styles/dimensions';
 import TabBarButton from './TabBarButton';
 import TabShape from './TabShape';
 import {pushIcon} from './utils';
-// import {pushIcon} from './utils';
 
 export default function TabBar(props) {
   const {state, descriptors, navigation} = props.props;
@@ -25,7 +23,7 @@ export default function TabBar(props) {
       <TabShape />
       <View style={StyleSheet.absoluteFill}>
         <View style={styles.content}>
-          {state.routes.map((route: RouteProp, index) => {
+          {state.routes.map((route, index: number) => {
             const {options} = descriptors[route.key];
             const label =
               options.tabBarLabel !== undefined

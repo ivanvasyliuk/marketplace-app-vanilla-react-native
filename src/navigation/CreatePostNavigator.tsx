@@ -6,8 +6,9 @@ import Touchable from '../components/Touchable/Touchable';
 import CreatePostScreen from '../screens/CreatePost/CreatePostScreen';
 import screens from './screens';
 import colors from '../styles/colors';
+import {CreatePostStackNavigatorParamList} from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<CreatePostStackNavigatorParamList>();
 
 function CreatePostNavigator() {
   return (

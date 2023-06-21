@@ -1,16 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
 import RootNavigator from './src/navigation';
+import {createStore, Provider} from './src/stores/createStore';
+
+const store = createStore();
 
 function App(): JSX.Element {
-  return <RootNavigator />;
+  useEffect(() => {
+    async function bootstrap() {
+      await store.bootstrap();
+    }
+    bootstrap();
+  }, []);
+  return (
+    <Provider value={store}>
+      <RootNavigator />
+    </Provider>
+  );
 }
 
 export default App;

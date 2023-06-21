@@ -4,8 +4,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SavedScreen from '../screens/Saved/SavedScreen';
 // import PostNavigation from "./PostNavigation";
 import screens from './screens';
+import {SavedStackNavigatorParamList} from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<SavedStackNavigatorParamList>();
 
 function SavedNavigator() {
   return (

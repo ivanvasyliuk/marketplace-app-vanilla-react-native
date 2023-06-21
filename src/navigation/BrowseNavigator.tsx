@@ -1,8 +1,9 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BrowseScreen from '../screens/Browse/BrowseScreen';
 import screens from './screens';
+import {BrowseStackNavigatorParamList} from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<BrowseStackNavigatorParamList>();
 
 const BrowseNavigator = () => {
   return (
