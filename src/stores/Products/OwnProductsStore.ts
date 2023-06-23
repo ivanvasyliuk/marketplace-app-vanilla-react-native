@@ -1,6 +1,6 @@
 import {getParent, types} from 'mobx-state-tree';
-import Api from '../../api';
 import Fuse from 'fuse.js';
+import Api from '../../api';
 import {LatestProductCollection, Product} from '../schemas';
 import {asyncModel, createList} from '../utils';
 import {ProductModel} from './ProductModel';

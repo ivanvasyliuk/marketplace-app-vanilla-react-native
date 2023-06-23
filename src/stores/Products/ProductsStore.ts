@@ -1,10 +1,10 @@
 import {types} from 'mobx-state-tree';
+import Fuse from 'fuse.js';
 import {LatestProductCollection} from '../schemas';
 import {asyncModel, createList} from '../utils';
 import {LatestProductsStore} from './LatestProductsStore';
 import {OwnProductStore} from './OwnProductsStore';
 import {ProductModel} from './ProductModel';
-import Fuse from 'fuse.js';
 import Api from '../../api';
 
 export const ProductsStore = types

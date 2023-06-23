@@ -1,10 +1,10 @@
 import {types} from 'mobx-state-tree';
+import Fuse from 'fuse.js';
 import Api from '../../api';
 import {PAGE_SIZE} from '../../constants/products';
 import {LatestProductCollection} from '../schemas';
 import {asyncModel, createList} from '../utils';
 import {ProductModel} from './ProductModel';
-import Fuse from 'fuse.js';
 
 export const LatestProductsStore = types
   .model('LatestProductsStore', {
