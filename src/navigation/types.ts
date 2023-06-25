@@ -2,6 +2,7 @@ import screens from './screens';
 
 export type BrowseStackNavigatorParamList = {
   [screens.Browse]: undefined;
+  [screens.PostDetailsNavigator]: undefined;
 };
 export type ProfileStackNavigatorParamList = {
   [screens.Profile]: undefined;
