@@ -6,6 +6,9 @@ import SavedScreen from '../screens/Saved/SavedScreen';
 // import PostNavigation from "./PostNavigation";
 import screens from './screens';
 import {SavedStackNavigatorParamList} from './types';
+import PostNavigation from './PostNavigation';
+import Header from '../components/Header/Header';
+import SearchInput from '../components/SearchInput/SearchInput';
 
 const Stack = createNativeStackNavigator<SavedStackNavigatorParamList>();
 
@@ -17,20 +20,20 @@ function SavedNavigator() {
       }}>
       <Stack.Screen
         name={screens.Saved}
-        // options={{
-        //   header: () => (
-        //     <Header>
-        //       <SearchInput placeholder="Search" />
-        //     </Header>
-        //   ),
-        // }}
+        options={{
+          header: () => (
+            <Header>
+              <SearchInput placeholder="Search" />
+            </Header>
+          ),
+        }}
         component={SavedScreen}
       />
-      {/* <Stack.Screen
-          options={{ headerShown: false }}
-          name={screens.PostDetailsNavigator}
-          component={PostNavigation}
-        /> */}
+      <Stack.Screen
+        options={{headerShown: false}}
+        name={screens.PostDetailsNavigator}
+        component={PostNavigation}
+      />
     </Stack.Navigator>
   );
 }

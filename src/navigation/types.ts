@@ -1,7 +1,9 @@
 import screens from './screens';
 
 export type BrowseStackNavigatorParamList = {
-  [screens.Browse]: undefined;
+  [screens.Browse]: {
+    search: string;
+  };
   [screens.PostDetailsNavigator]: undefined;
 };
 export type ProfileStackNavigatorParamList = {
@@ -12,6 +14,7 @@ export type InboxStackNavigatorParamList = {
 };
 export type SavedStackNavigatorParamList = {
   [screens.Saved]: undefined;
+  [screens.PostDetailsNavigator]: undefined;
 };
 export type CreatePostStackNavigatorParamList = {
   [screens.CreatePost]: {

@@ -2,9 +2,9 @@ import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 // import { AntDesign } from "@expo/vector-icons";
 import {useNavigation} from '@react-navigation/native';
-import screens from '../../../navigation/screens';
-import Touchable from '../../Touchable/Touchable';
 import s from './styles';
+import screens from '../../navigation/screens';
+import Touchable from '../Touchable/Touchable';
 
 interface ISearchItemProps {
   product: any;

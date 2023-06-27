@@ -32,17 +32,18 @@ const CreatePostScreen = () => {
     store.ownStore.createProduct.run(values);
   }
   useEffect(() => {
-    // navigation.setParams({onSubmit: () => formRef.current.handleSubmit()});
+    navigation.setParams({onSubmit: () => formRef.current.handleSubmit()});
   }, []);
 
   return (
     <ScrollView style={s.container}>
-      {/* <View style={s.contentContainer}>
+      <View style={s.contentContainer}>
         <Formik
           innerRef={formRef}
           initialValues={initialValues}
           onSubmit={onSubmit}
-          validationSchema={validationSchema}>
+          // validationSchema={validationSchema}
+        >
           {({handleChange, handleBlur, handleSubmit, values}) => (
             <View>
               <Title title="Key information" />
@@ -62,7 +63,7 @@ const CreatePostScreen = () => {
             </View>
           )}
         </Formik>
-      </View> */}
+      </View>
     </ScrollView>
   );
 };
