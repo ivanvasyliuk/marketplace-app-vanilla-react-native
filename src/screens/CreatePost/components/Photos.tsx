@@ -11,24 +11,19 @@ const Photos = () => {
   } = useFormikContext();
 
   return (
-    <>
-      <View style={s.container}>
-        <View style={s.imagesList}>
-          {images.map((image: string, index: number) => (
-            <View key={index}>
-              <Image source={{uri: image}} style={s.image} />
-            </View>
-          ))}
-          {isLoadingPhoto && (
-            <ActivityIndicator style={s.loaderContainer} size="large" />
-          )}
-          <ButtonAddPhoto
-            isLoadingPhoto={isLoadingPhoto}
-            setIsLoadingPhoto={setIsLoadingPhoto}
-          />
-        </View>
+    <View style={s.container}>
+      <View style={s.imagesList}>
+        {images.map((image: string, index: number) => (
+          <View key={index}>
+            <Image source={{uri: image}} style={s.image} />
+          </View>
+        ))}
+        {isLoadingPhoto && (
+          <ActivityIndicator style={s.loaderContainer} size="large" />
+        )}
+        <ButtonAddPhoto setIsLoadingPhoto={setIsLoadingPhoto} />
       </View>
-    </>
+    </View>
   );
 };
 

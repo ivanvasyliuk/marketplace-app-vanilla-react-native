@@ -14,7 +14,9 @@ export type SavedStackNavigatorParamList = {
   [screens.Saved]: undefined;
 };
 export type CreatePostStackNavigatorParamList = {
-  [screens.CreatePost]: undefined;
+  [screens.CreatePost]: {
+    onSubmit: () => void;
+  };
 };
 
 export type BottomTabNavigatorParamList = {

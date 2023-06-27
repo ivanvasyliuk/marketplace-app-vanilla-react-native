@@ -1,3 +1,4 @@
+import React from 'react';
 import {Text, View} from 'react-native';
 import {useStore} from '../../stores/createStore';
 import s from './styles';

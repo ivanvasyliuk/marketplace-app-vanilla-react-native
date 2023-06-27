@@ -28,8 +28,6 @@ const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
     }
   }
 
-  console.log('owner', owner);
-
   return (
     <View style={{flexDirection: 'row'}}>
       <View style={s.avatarContainer}>

@@ -1,8 +1,10 @@
-import {getRoot, getSnapshot, types} from 'mobx-state-tree';
+import {getRoot, getSnapshot, Instance, types} from 'mobx-state-tree';
 import Api from '../../api';
 import {ChatSchema} from '../schemas';
 import {UserModel} from '../users/UserModel';
 import {asyncModel} from '../utils';
+
+export interface IProductModule extends Instance<typeof ProductModel> {}
 
 export const ProductModel = types
   .model('ProductModel', {
@@ -27,12 +29,7 @@ export const ProductModel = types
   }))
 
   .actions(store => ({
-    fetchOwner() {
-      getRoot(store).entities.users.getById.run(store.ownerId);
-
-      store.owner = store.ownerId;
-    },
-    update(product) {
+    update(product: IProductModule) {
       Object.assign(store, product);
       if (store.saved) {
         getRoot(store).products.savedProducts.add(store);
@@ -63,7 +60,7 @@ function createChat(message) {
   };
 }
 
-function toogleFavorite(product) {
+function toogleFavorite(product: IProductModule) {
   return async function toogleFavoriteFlow(flow, store, rootStore) {
     try {
       flow.start();

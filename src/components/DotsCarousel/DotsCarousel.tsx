@@ -1,9 +1,14 @@
-import React from "react";
-import { View } from "react-native";
-import AnimatedDotsCarousel from "react-native-animated-dots-carousel";
-import s from "./styles";
+import React, {FC} from 'react';
+import {View} from 'react-native';
+import AnimatedDotsCarousel from 'react-native-animated-dots-carousel';
+import s from './styles';
 
-const DotsCarousel = ({ index, list }) => {
+interface IDotsCarouselProps {
+  index: number;
+  list: any[];
+}
+
+const DotsCarousel: FC<IDotsCarouselProps> = ({index, list}) => {
   return (
     <View style={s.container}>
       <AnimatedDotsCarousel
@@ -12,19 +17,19 @@ const DotsCarousel = ({ index, list }) => {
         maxIndicators={list.length}
         interpolateOpacityAndColor={false}
         activeIndicatorConfig={{
-          color: "white",
+          color: 'white',
           margin: 3,
           size: 8,
         }}
         inactiveIndicatorConfig={{
-          color: "gray",
+          color: 'gray',
           margin: 3,
           size: 8,
         }}
         decreasingDots={[
           {
             config: {
-              color: "#F96B2B",
+              color: '#F96B2B',
               margin: 3,
               opacity: 0.5,
               size: 6,
@@ -33,7 +38,7 @@ const DotsCarousel = ({ index, list }) => {
           },
           {
             config: {
-              color: "#F96B2B",
+              color: '#F96B2B',
               margin: 3,
               opacity: 0.5,
               size: 4,

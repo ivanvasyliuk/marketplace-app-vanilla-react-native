@@ -1,14 +1,14 @@
-import React, {useRef, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import {Text, View} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
-import ActionSheet from 'react-native-actionsheet';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+import * as ImagePicker from 'react-native-image-picker';
 import {useFormikContext} from 'formik';
+import ActionSheet from 'react-native-actionsheet';
 import Touchable from '../../../components/Touchable/Touchable';
 import s from './styles';
 
 interface IButtonAddPhotoProps {
-  setIsLoadingPhoto: string;
+  setIsLoadingPhoto: Function;
 }
 
 const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
@@ -22,10 +22,8 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
     // No permissions request is necessary for launching the image library
     try {
       setIsLoadingPhoto(true);
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
+      const result = await ImagePicker.launchImageLibrary({
+        mediaType: 'photo',
         quality: 1,
       });
       setFieldValue('images', [...images, result.assets[0].uri]);
@@ -39,10 +37,9 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
   async function onOpenCamera() {
     try {
       setIsLoadingPhoto(true);
-      const result = await ImagePicker.launchCameraAsync();
+      const result = await ImagePicker.launchCamera();
 
       setFieldValue('images', [...images, result.assets[0].uri]);
-
       setIsLoadingPhoto(false);
     } catch (error) {
       setIsLoadingPhoto(false);
@@ -67,7 +64,7 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
     <View style={s.touchableContainer}>
       <Touchable onPress={onOpenActionSheet}>
         <View style={s.iconContainer}>
-          <Ionicons name="add" size={24} style={s.addIcon} />
+          {/* <Ionicons name="add" size={24} style={s.addIcon} /> */}
         </View>
       </Touchable>
       <ActionSheet

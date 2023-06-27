@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
-import colors from "../../../styles/colors";
+import {StyleSheet} from 'react-native';
+import colors from '../../styles/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: "absolute",
+    position: 'absolute',
     zIndex: 1,
     top: 0,
     left: 0,
@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
   horizontalLine: {
     backgroundColor: colors.border,
     height: 1,
+  },
+  listEmptyComponentContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 export default styles;

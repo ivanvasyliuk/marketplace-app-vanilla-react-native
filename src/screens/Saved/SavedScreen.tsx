@@ -15,12 +15,12 @@ const SavedScreen = () => {
   //     store.products.search(route.params.search);
   //   }
   //   store.products.fetchSaved.run();
+
   // }, [route.params?.search, store.products.savedProducts.items]);
 
   // const list = !route.params?.search
   //   ? store.products.savedProducts.asArray
   //   : store.products.searchSavedProducts.asArray;
-
   return (
     <View style={s.container}>
       <Text>saved</Text>
