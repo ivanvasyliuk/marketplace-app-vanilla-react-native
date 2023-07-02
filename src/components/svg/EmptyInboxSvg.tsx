@@ -1,28 +1,26 @@
-import React from "react";
-import { Text, View } from "react-native";
-import Svg, { Circle, Mask, Path } from "react-native-svg";
-import colors from "../../styles/colors";
+import React from 'react';
+import {Text, View} from 'react-native';
+import Svg, {Circle, Mask, Path} from 'react-native-svg';
+import colors from '../../styles/colors';
 
 const EmptyInboxSvg = () => {
   return (
     <View
       style={{
-        position: "absolute",
+        position: 'absolute',
         top: 180,
         right: 0,
         left: 0,
-        justifyContent: "center",
+        justifyContent: 'center',
         flex: 1,
-        alignItems: "center",
-      }}
-    >
+        alignItems: 'center',
+      }}>
       <Svg
         width="128"
         height="128"
         viewBox="0 0 128 128"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+        xmlns="http://www.w3.org/2000/svg">
         <Mask id="path-1-inside-1_18_428" fill="white">
           <Path
             fill-rule="evenodd"
@@ -54,12 +52,11 @@ const EmptyInboxSvg = () => {
       <Text
         style={{
           color: colors.border,
-          weight: "400",
+          fontWeight: '400',
           lineHeight: 24,
-          align: "center",
+          alignSelf: 'center',
           fontSize: 16,
-        }}
-      >
+        }}>
         No massages yet
       </Text>
     </View>

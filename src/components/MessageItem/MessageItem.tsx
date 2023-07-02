@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {useStore} from '../../../stores/createStore';
+import {useStore} from '../../stores/createStore';
 import s from './styles';
 
 const MessageItem = ({message}) => {

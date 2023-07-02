@@ -4,10 +4,10 @@ import {observer} from 'mobx-react';
 import {FlashList} from '@shopify/flash-list';
 import {useStore} from '../../stores/createStore';
 import EmptyInboxSvg from '../../components/svg/EmptyInboxSvg';
-import colors from '../../styles/colors';
-import s from './styles';
 import GoToLoginButton from '../../components/GoToLoginButton/GoToLoginButton';
 import InboxChatItem from '../../components/InboxChatItem/InboxChatItem';
+import colors from '../../styles/colors';
+import s from './styles';
 
 const InboxScreen = () => {
   const store = useStore();
