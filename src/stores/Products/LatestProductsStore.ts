@@ -8,7 +8,7 @@ import {ProductModel} from './ProductModel';
 
 export const LatestProductsStore = types
   .model('LatestProductsStore', {
-    latestProductsArray: createList('LatestProductsArray', {
+    latestProducts: createList('LatestProductsArray', {
       of: types.reference(ProductModel),
       schema: LatestProductCollection,
     }),
@@ -22,7 +22,7 @@ export const LatestProductsStore = types
   })
   .views(store => ({
     get fuse() {
-      const fuse = new Fuse(store.latestProductsArray.items, {
+      const fuse = new Fuse(store.latestProducts.items, {
         keys: ['title', 'description'],
         shouldSort: true,
         includeMatches: true,
@@ -40,12 +40,6 @@ export const LatestProductsStore = types
     setHasNoMore(isHasNoMore) {
       store.hasNoMore = isHasNoMore;
     },
-    append(items) {
-      if (!Array.isArray(items)) {
-        items = [items];
-      }
-      store.items.push(...items);
-    },
     search(text) {
       const fuse = store.fuse;
       const result = fuse.search(text);
@@ -57,7 +51,7 @@ function fetchLatest() {
   return async function fetchLatestFlow(flow, store, rootStore) {
     store.setHasNoMore(false);
     const res = await Api.Products.fetchLatest();
-    store.latestProductsArray.set(res.data);
+    store.latestProducts.set(res.data);
 
     store.setHasNoMore(res.data.length < PAGE_SIZE);
   };
@@ -81,14 +75,11 @@ function fetchMore() {
         from: from.id,
         limit: PAGE_SIZE,
       });
-
-      const result = flow.merge(res.data, LatestProductCollection);
+      store.latestProducts.set(res.data);
 
       if (res.data.length < PAGE_SIZE) {
         store.setHasNoMore(true);
       }
-
-      store.app(result);
 
       flow.success();
     } catch (error) {}

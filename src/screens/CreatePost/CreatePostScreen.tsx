@@ -29,7 +29,7 @@ const CreatePostScreen = () => {
   const formRef = useRef();
 
   function onSubmit(values) {
-    store.ownStore.createProduct.run(values);
+    store.products.ownStore.createProduct.run(values);
   }
   useEffect(() => {
     navigation.setParams({onSubmit: () => formRef.current.handleSubmit()});

@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View} from 'react-native';
-import {useStore} from '../../stores/createStore';
-import s from './styles';
-import {FlashList} from '@shopify/flash-list';
-import {useNavigation, useRoute} from '@react-navigation/native';
-import {useEffect} from 'react';
 import {observer} from 'mobx-react';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {useStore} from '../../stores/createStore';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
 import FiltersListItem from '../../components/FiltersListItem/FiltersListItem';
+import s from './styles';
+import FiltersList from '../../components/FiltersList/FiltersList';
 
 const BrowseScreen = () => {
   const [filtersValues, setFiltersValues] = useState({
@@ -20,7 +19,7 @@ const BrowseScreen = () => {
   const store = useStore();
   const {params} = useRoute();
 
-  const list = store.products.latestProducts.latestProductsArray.asArray;
+  const list = store.products.latestStore.latestProducts.asArray;
 
   const filtersContainerVisible =
     Object.values(filtersValues).filter(i => i).length > 0;
@@ -31,11 +30,15 @@ const BrowseScreen = () => {
     console.log('filters submit');
   }
 
+  async function onRefresh() {
+    await store.products.latestStore.fetchLatest.run();
+  }
+
   useEffect(() => {
     if (params?.search) {
-      store.products.latestProducts.search(params.search);
+      store.products.latestStore.search(params.search);
     }
-    store.products.latestProducts.fetchLatest.run();
+    store.products.latestStore.fetchLatest.run();
     // navigation.setParams({
     //   filtersSubmit: handlerFiltersSubmit,
     //   filtersValues: filtersValues,
@@ -45,27 +48,17 @@ const BrowseScreen = () => {
   return (
     <>
       {!!params?.search && (
-        <SearchList
-          list={store.products.latestProducts.searchProducts.asArray}
-        />
+        <SearchList list={store.products.latestStore.searchProducts.asArray} />
       )}
       {filtersContainerVisible && (
-        <View style={{height: 52, justifyContent: 'center'}}>
-          <FlashList
-            data={Object.values(filtersValues).filter(item => item)}
-            renderItem={({item}) => (
-              <FiltersListItem
-                setFiltersValues={setFiltersValues}
-                filtersValues={filtersValues}
-                filter={item}
-              />
-            )}
-            horizontal
-          />
-        </View>
+        <FiltersList list={Object.values(filtersValues).filter(item => item)} />
       )}
       <View style={s.container}>
-        <ProductList list={list} />
+        <ProductList
+          isRefreshing={store.products.latestStore.fetchLatest.isLoading}
+          onRefresh={onRefresh}
+          list={list}
+        />
       </View>
     </>
   );

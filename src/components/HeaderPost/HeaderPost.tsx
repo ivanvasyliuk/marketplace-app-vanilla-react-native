@@ -1,16 +1,21 @@
-import {useNavigation} from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
-import {observer} from 'mobx-react';
 import React, {FC} from 'react';
 import {View} from 'react-native';
+import {observer} from 'mobx-react';
+import {useNavigation} from '@react-navigation/native';
+import LinearGradient from 'react-native-linear-gradient';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Touchable from '../Touchable/Touchable';
 import {dimensions} from '../../styles';
 import colors from '../../styles/colors';
-import Touchable from '../Touchable/Touchable';
+import {IProductModule} from '../../stores/Products/ProductModel';
 import s from './styles';
 
 interface IHeaderPostProps {
-  product: any;
+  product: IProductModule;
   isOwnerPost: boolean;
   onShare: Function;
 }
@@ -27,7 +32,7 @@ const HeaderPost: FC<IHeaderPostProps> = ({product, isOwnerPost, onShare}) => {
         s.header,
         {paddingTop: top, height: top + dimensions.headerHeight},
       ]}>
-      {/* <Touchable
+      <Touchable
         style={s.iconContainer}
         isOpacity
         onPress={() => navigation.goBack()}>
@@ -65,7 +70,7 @@ const HeaderPost: FC<IHeaderPostProps> = ({product, isOwnerPost, onShare}) => {
         <Touchable style={s.iconContainer} isOpacity>
           <MaterialIcons name="more-vert" size={24} color={colors.white} />
         </Touchable>
-      </View> */}
+      </View>
     </LinearGradient>
   );
 };

@@ -1,3 +1,4 @@
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import AddPostButton from '../../components/svg/AddPostButton';
 import colors from '../../styles/colors';

@@ -1,6 +1,6 @@
 import React, {FC, useRef, useState} from 'react';
 import {Text, View} from 'react-native';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as ImagePicker from 'react-native-image-picker';
 import {useFormikContext} from 'formik';
 import ActionSheet from 'react-native-actionsheet';
@@ -64,7 +64,7 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
     <View style={s.touchableContainer}>
       <Touchable onPress={onOpenActionSheet}>
         <View style={s.iconContainer}>
-          {/* <Ionicons name="add" size={24} style={s.addIcon} /> */}
+          <Ionicons name="add" size={24} style={s.addIcon} />
         </View>
       </Touchable>
       <ActionSheet

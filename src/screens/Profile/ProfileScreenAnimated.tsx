@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {observer} from 'mobx-react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-// import {AntDesign} from '@expo/vector-icons';
 // import Animated, {
 //   useSharedValue,
 //   useAnimatedStyle,
@@ -10,12 +9,13 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 //   interpolate,
 // } from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-// import ProductList from '../../components/Products/ProductList/ProductList';
-// import {useStore} from '../../stores/createStore';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {useStore} from '../../stores/createStore';
 import {width} from '../../styles/dimensions';
 import Touchable from '../../components/Touchable/Touchable';
-import SettingsIcon from '../../components/svg/SettingsIcon';
 import screens from '../../navigation/screens';
+import SettingsIcon from '../../components/svg/SettingsIcon';
+import ProductList from '../../components/ProductList/ProductList';
 import NotSellYetIcon from '../../components/svg/NotSellYetIcon';
 import s from './styles';
 
@@ -25,24 +25,24 @@ const ProfileScreenAnimated = () => {
   // const headerHeight = useSharedValue(172);
   // const scrollOffset = useSharedValue(0);
   // const textWidth = useSharedValue(0);
-  // const store = useStore();
+  const store = useStore();
 
   const {top} = useSafeAreaInsets();
 
-  // const owner = !!route.params?.owner
-  //   ? route.params?.owner.owner
-  //   : store.viewer.userModel;
+  const owner = !!route.params?.owner
+    ? route.params?.owner.owner
+    : store.viewer.userModel;
 
   // const isOwnerPost = store.viewer.userId === owner.id;
 
-  // useEffect(() => {
-  //   if (!owner) {
-  //     navigation.navigate(screens.Settings);
-  //   }
-  //   store.products.ownStore.fetch.run(owner.id);
-  // }, [store.products.ownStore.list]);
+  useEffect(() => {
+    if (!owner) {
+      navigation.navigate(screens.Settings);
+    }
+    store.products.ownStore.fetch.run(owner.id);
+  }, [store.products.ownStore.list]);
 
-  // const list = store.products.ownStore.ownProductsArray.asArray;
+  const list = store.products.ownStore.ownProductsArray.asArray;
 
   const HEADER_MAX_HEIGHT = 172;
   const HEADER_MIN_HEIGHT = 56;
@@ -69,6 +69,7 @@ const ProfileScreenAnimated = () => {
   //     }),
   //   };
   // });
+
   // const backButtonContainer = useAnimatedStyle(() => {
   //   const top = (HEADER_MIN_HEIGHT - 36) / 2;
   //   const opacity = interpolate(
@@ -85,6 +86,7 @@ const ProfileScreenAnimated = () => {
   //     height: 36,
   //   };
   // });
+
   // const textContainer = useAnimatedStyle(() => {
   //   const middle = (width - textWidth.value) / 2;
   //   let left = 92;
@@ -103,6 +105,7 @@ const ProfileScreenAnimated = () => {
   //     top: withSpring(top),
   //   };
   // });
+
   // const avatarContainer = useAnimatedStyle(() => {
   //   const middle = width / 2 - PROFILE_IMAGE_MAX_HEIGHT / 2;
   //   let left = 48;
@@ -143,21 +146,21 @@ const ProfileScreenAnimated = () => {
             style={s.boldText}
             onLayout={e => {
               textWidth.value = e.nativeEvent.layout.width;
-            }}> */}
-      {/* {owner?.fullName} */}
-      {/* </Text> */}
-      {/* </Animated.View> */}
-      {/* {isOwnerPost && (
-          <Touchable
-            style={s.settingsButton}
-            isOpacity
-            onPress={() => navigation.navigate(screens.Settings)}>
-            <SettingsIcon />
-          </Touchable>
-        )} */}
+            }}>
+            {owner?.fullName}
+          </Text>
+        </Animated.View>
+        {isOwnerPost && (
+        <Touchable
+          style={s.settingsButton}
+          isOpacity
+          onPress={() => navigation.navigate(screens.Settings)}>
+          <SettingsIcon />
+        </Touchable>
+        )} 
 
-      {/* <Animated.View style={backButtonContainer}> */}
-      {/* <Touchable
+        <Animated.View style={backButtonContainer}>
+          <Touchable
             style={{
               justifyContent: 'center',
               alignItems: 'center',
@@ -166,9 +169,9 @@ const ProfileScreenAnimated = () => {
             isOpacity
             onPress={() => navigation.goBack()}>
             <AntDesign name="left" size={22} />
-          </Touchable> */}
-      {/* </Animated.View> */}
-      {/* </Animated.View> */}
+          </Touchable>
+        </Animated.View>
+      </Animated.View> */}
       {/* <ProductList
         list={list}
         onScroll={scrollHandler}

@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import { Ionicons } from "@expo/vector-icons";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Touchable from '../components/Touchable/Touchable';
 import CreatePostScreen from '../screens/CreatePost/CreatePostScreen';
+import {CreatePostStackNavigatorParamList} from './types';
 import screens from './screens';
 import colors from '../styles/colors';
-import {CreatePostStackNavigatorParamList} from './types';
 
 const Stack = createNativeStackNavigator<CreatePostStackNavigatorParamList>();
 
@@ -21,8 +21,7 @@ function CreatePostNavigator() {
           headerLeft: () => {
             return (
               <Touchable onPress={() => navigation.goBack()}>
-                <Text style={style.postLabel}>Back</Text>
-                {/* <Ionicons name="close" size={30} color={colors.primary} /> */}
+                <Ionicons name="close" size={30} color={colors.primary} />
               </Touchable>
             );
           },

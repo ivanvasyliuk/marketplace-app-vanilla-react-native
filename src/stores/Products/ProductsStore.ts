@@ -10,7 +10,7 @@ import Api from '../../api';
 export const ProductsStore = types
   .model('ProductsStore', {
     ownStore: types.optional(OwnProductStore, {}),
-    latestProducts: types.optional(LatestProductsStore, {}),
+    latestStore: types.optional(LatestProductsStore, {}),
     savedProducts: createList('savedProducts', {
       of: types.reference(ProductModel),
       schema: LatestProductCollection,

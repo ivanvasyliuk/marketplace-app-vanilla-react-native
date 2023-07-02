@@ -662,4 +662,4 @@ export const MESSAGES = [
   },
 ];
 
-console.log(MESSAGES.reverse());
+// console.log(MESSAGES.reverse());

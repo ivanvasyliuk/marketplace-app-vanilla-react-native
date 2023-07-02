@@ -13,7 +13,9 @@ export type InboxStackNavigatorParamList = {
   [screens.Inbox]: undefined;
 };
 export type SavedStackNavigatorParamList = {
-  [screens.Saved]: undefined;
+  [screens.Saved]: {
+    search: string;
+  };
   [screens.PostDetailsNavigator]: undefined;
 };
 export type CreatePostStackNavigatorParamList = {

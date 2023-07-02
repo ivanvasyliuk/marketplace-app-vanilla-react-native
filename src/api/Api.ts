@@ -76,6 +76,11 @@ export const Products = {
     // return axios.get("api/products/latest");
   },
   fetchMore({from, limit}) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({data: TEST_PRODUCTS});
+      }, 300);
+    });
     // return axios.get(`/products/latest?from=${from}&limit=${limit}`);
   },
   fetchSaved() {

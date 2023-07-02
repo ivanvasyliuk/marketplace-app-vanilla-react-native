@@ -14,13 +14,13 @@ const SearchInput = ({sizes, style, ...props}) => {
   const inputRef = useRef();
 
   const changeTextDebouncer = useCallback(
-    debounce(search => {
+    debounce((search: string) => {
       navigation.setParams({search});
     }, 500),
     [],
   );
 
-  const onChangeHandler = search => {
+  const onChangeHandler = (search: string) => {
     setText(search);
     changeTextDebouncer(search);
   };
