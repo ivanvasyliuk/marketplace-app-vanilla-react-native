@@ -2,10 +2,10 @@ import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Touchable from '../Touchable/Touchable';
-import s from './styles';
 import {useStore} from '../../stores/createStore';
 import UserImage from '../UserImage/UserImage';
 import screens from '../../navigation/screens';
+import s from './styles';
 
 interface ISellerInfoProps {
   owner: any;

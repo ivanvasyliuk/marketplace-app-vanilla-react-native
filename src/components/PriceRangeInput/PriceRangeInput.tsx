@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
-import MySegmentedControl from "../MySegmentedControl.js/MySegmentedControl";
-import s from "./styles";
+import React, {useEffect, useRef, useState} from 'react';
+import {Text, TextInput, TouchableWithoutFeedback, View} from 'react-native';
+import MySegmentedControl from '../MySegmentedControl.js/MySegmentedControl';
+import s from './styles';
 
-const PriceRangeInput = ({ priceRange, setFiltersValues, filtersValues }) => {
+const PriceRangeInput = ({priceRange, setFiltersValues, filtersValues}) => {
   const [index, setIndex] = useState(0);
   const inputRef = useRef([]);
 
@@ -19,7 +19,7 @@ const PriceRangeInput = ({ priceRange, setFiltersValues, filtersValues }) => {
   return (
     <View style={s.container}>
       <MySegmentedControl
-        values={["Price", "Free"]}
+        values={['Price', 'Free']}
         index={index}
         setIndex={setIndex}
       />
@@ -29,11 +29,11 @@ const PriceRangeInput = ({ priceRange, setFiltersValues, filtersValues }) => {
             <View style={s.priceContainer}>
               <Text>From</Text>
               <TextInput
-                ref={(element) => {
+                ref={element => {
                   inputRef.current[0] = element;
                 }}
                 keyboardType="numeric"
-                onChangeText={(e) => {
+                onChangeText={e => {
                   setFiltersValues({
                     ...filtersValues,
                     price: [e, priceRange[1]],
@@ -44,16 +44,16 @@ const PriceRangeInput = ({ priceRange, setFiltersValues, filtersValues }) => {
               <Text>uah</Text>
             </View>
           </TouchableWithoutFeedback>
-          <View style={{ width: 8 }} />
+          <View style={{width: 8}} />
           <TouchableWithoutFeedback onPress={() => inputRef.current[1].focus()}>
             <View style={s.priceContainer}>
               <Text>To</Text>
               <TextInput
-                ref={(element) => {
+                ref={element => {
                   inputRef.current[1] = element;
                 }}
                 keyboardType="numeric"
-                onChangeText={(e) => {
+                onChangeText={e => {
                   setFiltersValues({
                     ...filtersValues,
                     price: [priceRange[0], e],

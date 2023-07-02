@@ -1,9 +1,9 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { useStore } from "../../../stores/createStore";
-import s from "./styles";
+import React from 'react';
+import {Text, View} from 'react-native';
+import {useStore} from '../../../stores/createStore';
+import s from './styles';
 
-const MessageItem = ({ message }) => {
+const MessageItem = ({message}) => {
   const store = useStore();
 
   const isViewerMessage = message.ownerId == store.viewer.userModel.id;
@@ -13,9 +13,8 @@ const MessageItem = ({ message }) => {
         style={[
           s.messageContainer,
           isViewerMessage ? s.senderContainer : s.receiverContainer,
-          message.text.length <= 26 && { flexDirection: "row" },
-        ]}
-      >
+          message.text.length <= 26 && {flexDirection: 'row'},
+        ]}>
         <Text style={isViewerMessage ? s.senderText : s.receiverText}>
           {message.text}
         </Text>

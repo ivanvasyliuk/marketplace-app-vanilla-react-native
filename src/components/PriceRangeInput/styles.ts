@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native";
-import colors from "../../../styles/colors";
+import {StyleSheet} from 'react-native';
+import colors from '../../styles/colors';
 
 const styles = StyleSheet.create({
   container: {},
   inputRangeContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 16,
   },
   priceContainer: {
@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderWidth: 1,
     borderRadius: 4,
     borderColor: colors.gray,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
   },
 });
 export default styles;

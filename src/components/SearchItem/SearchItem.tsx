@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Text, View} from 'react-native';
-// import { AntDesign } from "@expo/vector-icons";
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import s from './styles';
 import screens from '../../navigation/screens';
@@ -24,7 +24,7 @@ const SearchItem: FC<ISearchItemProps> = ({product}) => {
     <Touchable onPress={onPress}>
       <View style={s.container}>
         <Text style={s.text}>{product.title}</Text>
-        {/* <AntDesign name="right" size={24} style={s.iconLeft} /> */}
+        <AntDesign name="right" size={24} style={s.iconLeft} />
       </View>
     </Touchable>
   );

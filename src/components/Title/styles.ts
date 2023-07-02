@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   title: {
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     fontSize: 14,
     marginLeft: 16,
     marginBottom: 8,
-    fontWeight: "500",
+    fontWeight: '500',
     lineHeight: 21,
   },
 });

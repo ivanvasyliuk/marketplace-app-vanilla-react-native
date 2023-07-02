@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
-import colors from "../../styles/colors";
+import {StyleSheet} from 'react-native';
+import colors from '../../styles/colors';
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     flex: 1,
     backgroundColor: colors.backgroundColor,
     borderColor: colors.border,
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
   },
-  cleanTextButton: { color: colors.gray, alignSelf: "flex-end" },
+  cleanTextButton: {color: colors.gray, alignSelf: 'flex-end'},
 });
 export default styles;

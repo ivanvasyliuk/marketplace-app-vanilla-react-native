@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
-import { View, TextInput, Text, TouchableWithoutFeedback } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import s from "./styles";
+import React, {useRef, useState} from 'react';
+import {View, TextInput, Text, TouchableWithoutFeedback} from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import s from './styles';
 
-const Input = ({ label, name, handleChange, errors, touched, ...props }) => {
+const Input = ({label, name, handleChange, errors, touched, ...props}) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef();
   const hasError = errors[name] && touched[name];
@@ -15,8 +15,7 @@ const Input = ({ label, name, handleChange, errors, touched, ...props }) => {
             s.inputContainer,
             isFocused && s.focusedInput,
             hasError && s.errorInput,
-          ]}
-        >
+          ]}>
           <Text style={[s.label, hasError && s.errorLabel]}>{label}</Text>
           <TextInput
             ref={inputRef}
