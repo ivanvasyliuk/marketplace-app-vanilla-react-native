@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Text, View} from 'react-native';
+import {IMessageModule} from '../../stores/Chats/MessageModel';
 import {useStore} from '../../stores/createStore';
 import s from './styles';
 
-const MessageItem = ({message}) => {
+interface IMessageItemProps {
+  message: IMessageModule;
+}
+
+const MessageItem: FC<IMessageItemProps> = ({message}) => {
   const store = useStore();
 
   const isViewerMessage = message.ownerId == store.viewer.userModel.id;

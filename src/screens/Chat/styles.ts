@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderTopColor: colors.border,
     borderTopWidth: StyleSheet.hairlineWidth * 2,
-    backgroundColor: colors.white,
   },
   inputContainer: {
     flex: 1,

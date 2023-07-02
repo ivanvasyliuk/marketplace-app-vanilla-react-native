@@ -39,10 +39,10 @@ const BrowseScreen = () => {
       store.products.latestStore.search(params.search);
     }
     store.products.latestStore.fetchLatest.run();
-    // navigation.setParams({
-    //   filtersSubmit: handlerFiltersSubmit,
-    //   filtersValues: filtersValues,
-    // });
+    navigation.setParams({
+      filtersSubmit: handlerFiltersSubmit,
+      filtersValues: filtersValues,
+    });
   }, [params?.search, filtersValues]);
 
   return (

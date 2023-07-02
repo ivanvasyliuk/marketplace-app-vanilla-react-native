@@ -5,6 +5,7 @@ export type BrowseStackNavigatorParamList = {
     search: string;
   };
   [screens.PostDetailsNavigator]: undefined;
+  [screens.Filters]: undefined;
 };
 export type ProfileStackNavigatorParamList = {
   [screens.Profile]: undefined;
@@ -17,6 +18,9 @@ export type SavedStackNavigatorParamList = {
     search: string;
   };
   [screens.PostDetailsNavigator]: undefined;
+};
+export type FiltersStackNavigatorParamList = {
+  [screens.FiltersScreen]: undefined;
 };
 export type CreatePostStackNavigatorParamList = {
   [screens.CreatePost]: {
@@ -32,5 +36,8 @@ export type BottomTabNavigatorParamList = {
   [screens.ProfileTab]: undefined;
 };
 export type RootStackNavigatorParamList = {
-  [screens.MainApp]: {};
+  [screens.MainApp]: undefined;
+  [screens.CreatePostModal]: undefined;
+  [screens.Chat]: undefined;
+  [screens.FiltersModal]: undefined;
 };

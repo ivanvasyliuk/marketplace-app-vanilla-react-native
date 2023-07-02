@@ -1,4 +1,6 @@
-import {types} from 'mobx-state-tree';
+import {Instance, types} from 'mobx-state-tree';
+
+export interface IMessageModule extends Instance<typeof MessageModel> {}
 
 export const MessageModel = types.model('MessageModel', {
   id: types.identifierNumber,

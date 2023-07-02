@@ -6,13 +6,13 @@ import Toast from 'react-native-toast-message';
 import Touchable from '../../components/Touchable/Touchable';
 import {useStore} from '../../stores/createStore';
 import CallAndMessageButtons from '../../components/CallAndMessageButtons/CallAndMessageButtons';
-import s from './styles';
 import {TAB_BAR_HEIGHT_SIZE} from '../../styles/dimensions';
 import DotsCarousel from '../../components/DotsCarousel/DotsCarousel';
 import SellerInfo from '../../components/SellerInfo/SellerInfo';
 import ImagesCarousel from '../../components/ImagesCarousel/ImagesCarousel';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
 import LinearGradient from 'react-native-linear-gradient';
+import s from './styles';
 
 const PostScreen = () => {
   const [allDescriptionVisible, setAllDescriptionVisible] = useState(false);
@@ -48,7 +48,7 @@ const PostScreen = () => {
     }
   }
 
-  function openCall(phoneNumber) {
+  function openCall(phoneNumber: string) {
     if (phoneNumber) {
       Linking.openURL(`tel:${phoneNumber}`);
     } else {
@@ -58,8 +58,6 @@ const PostScreen = () => {
       });
     }
   }
-
-  console.log('product', product);
 
   return (
     <View style={s.container}>

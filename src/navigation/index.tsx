@@ -9,6 +9,7 @@ import CreatePostNavigator from './CreatePostNavigator';
 import {Text} from 'react-native';
 import ChatLeftHeader from './components/ChatLeftHeader/ChatLeftHeader';
 import ChatScreen from '../screens/Chat/ChatScreen';
+import FiltersNavigator from './FiltersNavigator';
 
 const RootStack = createStackNavigator<RootStackNavigatorParamList>();
 
@@ -28,10 +29,10 @@ const RootNavigator = () => {
             name={screens.CreatePostModal}
             component={CreatePostNavigator}
           />
-          {/* <RootStack.Screen
+          <RootStack.Screen
             name={screens.FiltersModal}
             component={FiltersNavigator}
-          /> */}
+          />
           <RootStack.Screen
             options={({route}) => ({
               headerShown: true,
