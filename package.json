@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "npx react-native run-ios",
+    "clear": "npm start -- --reset-cache",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"
@@ -19,6 +20,7 @@
     "@react-navigation/stack": "^6.3.16",
     "@shopify/flash-list": "^1.4.3",
     "@types/react-native-vector-icons": "^6.4.13",
+    "date-fns": "^2.30.0",
     "formik": "^2.4.2",
     "fuse.js": "^6.6.2",
     "mirror-to-object-pairs": "^2.0.0",
@@ -56,7 +58,7 @@
     "babel-jest": "^23.6.0",
     "eslint": "^8.19.0",
     "jest": "^25.0.0",
-    "metro-react-native-babel-preset": "^0.49.1",
+    "metro-react-native-babel-preset": "^0.76.7",
     "prettier": "^2.4.1",
     "react-test-renderer": "18.2.0",
     "typescript": "4.8.4"

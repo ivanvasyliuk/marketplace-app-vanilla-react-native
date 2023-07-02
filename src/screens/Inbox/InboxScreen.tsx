@@ -1,29 +1,29 @@
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {observer} from 'mobx-react';
-// import {FlashList} from '@shopify/flash-list';
-// import {useStore} from '../../stores/createStore';
+import {FlashList} from '@shopify/flash-list';
+import {useStore} from '../../stores/createStore';
 import EmptyInboxSvg from '../../components/svg/EmptyInboxSvg';
-// import InboxChatItem from '../../components/Chat/InboxChatItem/InboxChatItem';
-// import GoToLoginButton from '../../components/GoToLoginButton/GoToLoginButton';
 import colors from '../../styles/colors';
 import s from './styles';
+import GoToLoginButton from '../../components/GoToLoginButton/GoToLoginButton';
+import InboxChatItem from '../../components/InboxChatItem/InboxChatItem';
 
 const InboxScreen = () => {
-  // const store = useStore();
-  // const chats = store.chats;
+  const store = useStore();
+  const chats = store.chats;
 
-  // useEffect(() => {
-  //   chats.fetch.run();
-  // }, []);
+  useEffect(() => {
+    chats.fetch.run();
+  }, []);
 
   return (
     <View style={s.container}>
-      {/* {store.viewer.userModel ? (
+      {!store.viewer.userModel ? (
         <FlashList
           data={chats.list}
-          renderItem={({ item }) => <InboxChatItem chat={item} />}
-          keyExtractor={(item) => item.id}
+          renderItem={({item}) => <InboxChatItem chat={item} />}
+          keyExtractor={item => item.id}
           refreshing={chats.fetch.isLoading}
           ListEmptyComponent={<EmptyInboxSvg />}
           ListFooterComponent={() => (
@@ -45,18 +45,17 @@ const InboxScreen = () => {
           ItemSeparatorComponent={() => (
             <View
               style={{
-                borderBottomColor: "white",
+                borderBottomColor: 'white',
                 borderBottomWidth: 1,
                 paddingLeft: 72,
-                backgroundColor: "white",
-              }}
-            >
+                backgroundColor: 'white',
+              }}>
               <View
                 style={{
                   borderBottomColor: colors.border,
                   borderBottomWidth: 1,
 
-                  backgroundColor: "white",
+                  backgroundColor: 'white',
                 }}
               />
             </View>
@@ -66,26 +65,24 @@ const InboxScreen = () => {
         <View
           style={{
             flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
           <Text
             style={{
               fontSize: 16,
-              fontWeight: "400",
+              fontWeight: '400',
               lineHeight: 24,
               letterSpacing: 0,
-              textAlign: "center",
-              color: "gray",
+              textAlign: 'center',
+              color: 'gray',
               marginBottom: 8,
-            }}
-          >
+            }}>
             Login to check your Inbox
           </Text>
           <GoToLoginButton />
         </View>
-      )} */}
+      )}
     </View>
   );
 };

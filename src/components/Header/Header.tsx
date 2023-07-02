@@ -4,7 +4,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {dimensions} from '../../styles';
 import s from './styles';
 
-const Header: FC = ({children}) => {
+const Header = ({children}) => {
   const {top} = useSafeAreaInsets();
 
   return (
