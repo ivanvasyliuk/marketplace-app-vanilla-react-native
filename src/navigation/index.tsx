@@ -10,6 +10,7 @@ import {Text} from 'react-native';
 import ChatLeftHeader from './components/ChatLeftHeader/ChatLeftHeader';
 import ChatScreen from '../screens/Chat/ChatScreen';
 import FiltersNavigator from './FiltersNavigator';
+import AuthNavigator from './AuthNavigator';
 
 const RootStack = createStackNavigator<RootStackNavigatorParamList>();
 
@@ -46,10 +47,7 @@ const RootNavigator = () => {
           />
         </RootStack.Group>
         <RootStack.Group>
-          {/* <RootStack.Screen
-            name={screens.Auth}
-            component={AuthNavigator}
-          /> */}
+          <RootStack.Screen name={screens.Auth} component={AuthNavigator} />
         </RootStack.Group>
       </RootStack.Navigator>
     </NavigationContainer>

@@ -41,13 +41,33 @@ export const Auth = {
       }, 300);
     });
   },
-  // register({ email, password, fullName }) {
-  //   return axios.post('/api/auth/register', {
-  //     email,
-  //     password,
-  //     fullName,
-  //   });
-  // },
+  register({email, password, fullName}) {
+    //   return axios.post('/api/auth/register', {
+    //     email,
+    //     password,
+    //     fullName,
+    //   });
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          data: {
+            token: 'fksdnfkndlf',
+            user: {
+              email,
+              fullName: 'Test User',
+              id: '10',
+              location: 'fdsf',
+              avatar:
+                'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+              phone: 'sdfdfdfdsf',
+              createdAt: 'dfsf',
+              updatedAt: 'gksfngkf',
+            },
+          },
+        });
+      }, 300);
+    });
+  },
 };
 
 export const Products = {

@@ -27,6 +27,10 @@ export type CreatePostStackNavigatorParamList = {
     onSubmit: () => void;
   };
 };
+export type AuthStackNavigatorParamList = {
+  [screens.Login]: undefined;
+  [screens.Register]: undefined;
+};
 
 export type BottomTabNavigatorParamList = {
   [screens.BrowseTab]: undefined;
@@ -36,6 +40,7 @@ export type BottomTabNavigatorParamList = {
   [screens.ProfileTab]: undefined;
 };
 export type RootStackNavigatorParamList = {
+  [screens.Auth]: undefined;
   [screens.MainApp]: undefined;
   [screens.CreatePostModal]: undefined;
   [screens.Chat]: undefined;

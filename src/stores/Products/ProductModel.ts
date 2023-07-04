@@ -29,7 +29,7 @@ export const ProductModel = types
   }))
 
   .actions(store => ({
-    update(product: IProductModule) {
+    update(product: Partial<IProductModule>) {
       Object.assign(store, product);
       if (store.saved) {
         getRoot(store).products.savedProducts.add(store);
@@ -60,7 +60,7 @@ function createChat(message) {
   };
 }
 
-function toogleFavorite(product: IProductModule) {
+function toogleFavorite(product: Partial<IProductModule>) {
   return async function toogleFavoriteFlow(flow, store, rootStore) {
     try {
       flow.start();

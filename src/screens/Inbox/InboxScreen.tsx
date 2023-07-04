@@ -19,7 +19,7 @@ const InboxScreen = () => {
 
   return (
     <View style={s.container}>
-      {!store.viewer.userModel ? (
+      {store.viewer.userModel ? (
         <FlashList
           data={chats.list}
           renderItem={({item}) => <InboxChatItem chat={item} />}

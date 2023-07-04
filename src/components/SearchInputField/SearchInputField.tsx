@@ -1,8 +1,23 @@
 import React, {useRef, useState} from 'react';
-import {TextInput, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  StyleProp,
+  TextInput,
+  TextInputProps,
+  TextStyle,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Touchable from '../Touchable/Touchable';
 import s from './styles';
+
+interface ISearchInputFieldProps extends TextInputProps {
+  sizes?: any;
+  style?: StyleProp<TextStyle>;
+  filtersValues: any;
+  setFiltersValues: Function;
+  value: any;
+}
 
 const SearchInputField = ({
   sizes,
@@ -13,7 +28,7 @@ const SearchInputField = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef();
+  const inputRef = useRef<TextInput>();
 
   function onChange(e) {
     setFiltersValues({...filtersValues, search: e});

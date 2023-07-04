@@ -4,6 +4,7 @@ import {asyncModel} from '../utils';
 
 export const AuthStore = types.model('AuthStore', {
   login: asyncModel(loginFlow),
+  register: asyncModel(registerFlow),
   logout: asyncModel(logout),
 });
 
@@ -15,6 +16,16 @@ function loginFlow({password, email}) {
     rootStore.viewer.setViewer(user);
   };
 }
+
+function registerFlow({password, email}) {
+  return async (flow, store, rootStore) => {
+    const res = await Api.Auth.register({password, email});
+    const {token, user} = res.data;
+    Api.Auth.setToken(token);
+    rootStore.viewer.setViewer(user);
+  };
+}
+
 function logout() {
   return async function logoutFlow(flow, store, rootStore) {
     Api.Auth.setToken('');
