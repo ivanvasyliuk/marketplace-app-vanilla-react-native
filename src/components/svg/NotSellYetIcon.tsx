@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 import colors from '../../styles/colors';
 
-const NotSellYetIcon = () => {
+const NotSellYetIcon: FC = () => {
   return (
     <View
       style={{

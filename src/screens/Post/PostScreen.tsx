@@ -64,12 +64,12 @@ const PostScreen = () => {
 
   return (
     <View style={s.container}>
-      <StatusBar
+      {/* <StatusBar
         backgroundColor={colors.backgroundColor}
         barStyle={
           route.name == screens.PostDetails ? 'light-content' : 'default'
         }
-      />
+      /> */}
       <HeaderPost
         product={product}
         isOwnerPost={isOwnerPost}

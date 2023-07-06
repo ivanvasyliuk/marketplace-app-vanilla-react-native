@@ -7,8 +7,13 @@ const styles = StyleSheet.create({
   boldText: {fontSize: 16, fontWeight: '500'},
   settingsButton: {
     position: 'absolute',
-    top: 19.5,
+    top: 18,
     right: 10,
+  },
+  centerContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
   },
 });
 export default styles;
