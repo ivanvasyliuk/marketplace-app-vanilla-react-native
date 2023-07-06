@@ -28,10 +28,14 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   timeAndLocation: {
+    flexDirection: 'row',
+  },
+  locationLabel: {
     lineHeight: 24,
     fontSize: 16,
     fontWeight: '700',
-    color: 'gray',
+    color: colors.gray,
+    marginRight: 10,
   },
   price: {
     position: 'absolute',

@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {observer} from 'mobx-react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {useStore} from '../../stores/createStore';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
-import FiltersListItem from '../../components/FiltersListItem/FiltersListItem';
 import s from './styles';
 import FiltersList from '../../components/FiltersList/FiltersList';
 
@@ -51,7 +50,11 @@ const BrowseScreen = () => {
         <SearchList list={store.products.latestStore.searchProducts.asArray} />
       )}
       {filtersContainerVisible && (
-        <FiltersList list={Object.values(filtersValues).filter(item => item)} />
+        <FiltersList
+          list={Object.values(filtersValues).filter(item => item)}
+          filtersValues={filtersValues}
+          setFiltersValues={setFiltersValues}
+        />
       )}
       <View style={s.container}>
         <ProductList

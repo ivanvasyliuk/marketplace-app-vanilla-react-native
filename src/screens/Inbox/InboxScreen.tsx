@@ -6,7 +6,6 @@ import {useStore} from '../../stores/createStore';
 import EmptyInboxSvg from '../../components/svg/EmptyInboxSvg';
 import GoToLoginButton from '../../components/GoToLoginButton/GoToLoginButton';
 import InboxChatItem from '../../components/InboxChatItem/InboxChatItem';
-import colors from '../../styles/colors';
 import s from './styles';
 
 const InboxScreen = () => {
@@ -26,60 +25,17 @@ const InboxScreen = () => {
           keyExtractor={item => item.id}
           refreshing={chats.fetch.isLoading}
           ListEmptyComponent={<EmptyInboxSvg />}
-          ListFooterComponent={() => (
-            <View
-              style={{
-                borderBottomColor: colors.border,
-                borderBottomWidth: 1,
-              }}
-            />
-          )}
-          ListHeaderComponent={() => (
-            <View
-              style={{
-                borderBottomColor: colors.border,
-                borderBottomWidth: 1,
-              }}
-            />
-          )}
+          ListFooterComponent={() => <View style={s.listHeaderComponent} />}
+          ListHeaderComponent={() => <View style={s.listHeaderComponent} />}
           ItemSeparatorComponent={() => (
-            <View
-              style={{
-                borderBottomColor: 'white',
-                borderBottomWidth: 1,
-                paddingLeft: 72,
-                backgroundColor: 'white',
-              }}>
-              <View
-                style={{
-                  borderBottomColor: colors.border,
-                  borderBottomWidth: 1,
-
-                  backgroundColor: 'white',
-                }}
-              />
+            <View style={s.separatorContainer}>
+              <View style={s.separator} />
             </View>
           )}
         />
       ) : (
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: '400',
-              lineHeight: 24,
-              letterSpacing: 0,
-              textAlign: 'center',
-              color: 'gray',
-              marginBottom: 8,
-            }}>
-            Login to check your Inbox
-          </Text>
+        <View style={s.centerContainer}>
+          <Text style={s.grayText}>Login to check your Inbox</Text>
           <GoToLoginButton />
         </View>
       )}

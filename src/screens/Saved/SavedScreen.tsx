@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import {observer} from 'mobx-react';
 import {useStore} from '../../stores/createStore';

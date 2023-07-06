@@ -8,10 +8,10 @@ import s from './styles';
 const debounce = require('lodash.debounce');
 
 const SearchInput = ({sizes, style, ...props}) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState<string>('');
   const [isFocused, setIsFocused] = useState(false);
   const navigation = useNavigation();
-  const inputRef = useRef();
+  const inputRef = useRef<TextInput>();
 
   const changeTextDebouncer = useCallback(
     debounce((search: string) => {

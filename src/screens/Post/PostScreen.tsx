@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import {View, Share, Text, ScrollView, Linking, StatusBar} from 'react-native';
 import {observer} from 'mobx-react';
-import {View, Share, Text, ScrollView, Linking} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
+import LinearGradient from 'react-native-linear-gradient';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Touchable from '../../components/Touchable/Touchable';
 import {useStore} from '../../stores/createStore';
 import CallAndMessageButtons from '../../components/CallAndMessageButtons/CallAndMessageButtons';
@@ -11,7 +13,8 @@ import DotsCarousel from '../../components/DotsCarousel/DotsCarousel';
 import SellerInfo from '../../components/SellerInfo/SellerInfo';
 import ImagesCarousel from '../../components/ImagesCarousel/ImagesCarousel';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
-import LinearGradient from 'react-native-linear-gradient';
+import screens from '../../navigation/screens';
+import colors from '../../styles/colors';
 import s from './styles';
 
 const PostScreen = () => {
@@ -61,6 +64,12 @@ const PostScreen = () => {
 
   return (
     <View style={s.container}>
+      <StatusBar
+        backgroundColor={colors.backgroundColor}
+        barStyle={
+          route.name == screens.PostDetails ? 'light-content' : 'default'
+        }
+      />
       <HeaderPost
         product={product}
         isOwnerPost={isOwnerPost}
@@ -75,12 +84,17 @@ const PostScreen = () => {
             style={s.titleAndPriceContainer}>
             <View>
               <Text style={s.title}>{product.title}</Text>
-              <Text style={s.timeAndLocation}>
-                {timeCreatedAt}
-                {`   `}
-                {/* <MaterialIcons name="location-on" size={18} color="gray" /> */}
-                {product.location}
-              </Text>
+              <View style={s.timeAndLocation}>
+                <Text style={s.locationLabel}>{timeCreatedAt}</Text>
+                <Text style={s.locationLabel}>
+                  <Ionicons
+                    name="location-sharp"
+                    size={18}
+                    color={colors.gray}
+                  />
+                  {product.location}
+                </Text>
+              </View>
             </View>
             <Text style={s.price}>{`$${product.price}`}</Text>
           </LinearGradient>

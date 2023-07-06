@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import {
   StyleProp,
   TextInput,
@@ -19,7 +19,7 @@ interface ISearchInputFieldProps extends TextInputProps {
   value: any;
 }
 
-const SearchInputField = ({
+const SearchInputField: FC<ISearchInputFieldProps> = ({
   sizes,
   style,
   filtersValues,
@@ -27,7 +27,7 @@ const SearchInputField = ({
   value,
   ...props
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const inputRef = useRef<TextInput>();
 
   function onChange(e) {
@@ -46,7 +46,6 @@ const SearchInputField = ({
           ref={inputRef}
           style={[s.input, style]}
           onChangeText={onChange}
-          d
           onBlur={() => setIsFocused(false)}
           onFocus={() => setIsFocused(true)}
           value={value}

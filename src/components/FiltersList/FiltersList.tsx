@@ -5,9 +5,15 @@ import FiltersListItem from '../FiltersListItem/FiltersListItem';
 
 interface IFiltersListProps {
   list: any[];
+  filtersValues?: any;
+  setFiltersValues: Function;
 }
 
-const FiltersList: FC<IFiltersListProps> = ({list}) => {
+const FiltersList: FC<IFiltersListProps> = ({
+  list,
+  setFiltersValues,
+  filtersValues,
+}) => {
   return (
     <View style={{height: 52, justifyContent: 'center'}}>
       <FlashList

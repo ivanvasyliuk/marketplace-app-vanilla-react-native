@@ -23,9 +23,7 @@ export type FiltersStackNavigatorParamList = {
   [screens.FiltersScreen]: undefined;
 };
 export type CreatePostStackNavigatorParamList = {
-  [screens.CreatePost]: {
-    onSubmit: () => void;
-  };
+  [screens.CreatePost]: undefined;
 };
 export type AuthStackNavigatorParamList = {
   [screens.Login]: undefined;

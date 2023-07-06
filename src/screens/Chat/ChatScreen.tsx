@@ -67,10 +67,10 @@ const ChatScreen = () => {
           renderItem={({item}) => <MessageItem message={item} />}
           keyExtractor={item => item.id}
           role="dialog"
-          inverted={-1}
+          inverted={true}
         />
       </View>
-      <View style={[s.footer, {paddingBottom: bottom}]}>
+      <View style={[s.footer, bottom > 0 && {paddingBottom: bottom}]}>
         <View style={[s.inputContainer]}>
           <TextInput
             maxLength={400}

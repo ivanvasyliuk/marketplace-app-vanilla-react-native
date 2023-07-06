@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {ScrollView, View} from 'react-native';
 import {observer} from 'mobx-react';
-import {Formik} from 'formik';
+import {Formik, FormikProps} from 'formik';
 import * as yup from 'yup';
 import Title from '../../components/Title/Title';
 import PriceInput from '../../components/PriceInput/PriceInput';
@@ -26,7 +26,7 @@ const initialValues = {title: '', description: '', images: [], price: ''};
 const CreatePostScreen = () => {
   const store = useStore();
   const navigation = useNavigation();
-  const formRef = useRef();
+  const formRef = useRef<FormikProps<any>>();
 
   function onSubmit(values) {
     store.products.ownStore.createProduct.run(values);
