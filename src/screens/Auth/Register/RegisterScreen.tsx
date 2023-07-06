@@ -10,6 +10,11 @@ import {useStore} from '../../../stores/createStore';
 import screens from '../../../navigation/screens';
 import s from './styles';
 
+type onSubmitParamsProps = {
+  email: string;
+  password: string;
+};
+
 const validationSchema = yup.object({
   email: yup.string().email().required('Email is required'),
   password: yup
@@ -30,7 +35,7 @@ const RegisterScreen = () => {
 
   const resetAction = route.params.resetAction;
 
-  async function onSubmit({email, password}) {
+  async function onSubmit({email, password}: onSubmitParamsProps) {
     await store.auth.register.run({email, password});
     if (route.params.resetAction) {
       resetAction();

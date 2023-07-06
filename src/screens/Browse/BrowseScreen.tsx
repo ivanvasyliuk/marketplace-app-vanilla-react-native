@@ -5,11 +5,17 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {useStore} from '../../stores/createStore';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
-import s from './styles';
 import FiltersList from '../../components/FiltersList/FiltersList';
+import s from './styles';
+
+export type filtersValuesProps = {
+  price: string | string[];
+  search: string;
+  sortBy: string;
+};
 
 const BrowseScreen = () => {
-  const [filtersValues, setFiltersValues] = useState({
+  const [filtersValues, setFiltersValues] = useState<filtersValuesProps>({
     price: '',
     search: '',
     sortBy: '',
@@ -23,7 +29,7 @@ const BrowseScreen = () => {
   const filtersContainerVisible =
     Object.values(filtersValues).filter(i => i).length > 0;
 
-  function handlerFiltersSubmit(values) {
+  function handlerFiltersSubmit(values: filtersValuesProps) {
     setFiltersValues({...filtersValues, ...values});
 
     console.log('filters submit');

@@ -8,14 +8,15 @@ import {
   View,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {filtersValuesProps} from '../../screens/Browse/BrowseScreen';
 import Touchable from '../Touchable/Touchable';
 import s from './styles';
 
 interface ISearchInputFieldProps extends TextInputProps {
   sizes?: any;
   style?: StyleProp<TextStyle>;
-  filtersValues: any;
-  setFiltersValues: Function;
+  filtersValues: filtersValuesProps;
+  setFiltersValues: (filtersValues: filtersValuesProps) => void;
   value: any;
 }
 
@@ -30,7 +31,7 @@ const SearchInputField: FC<ISearchInputFieldProps> = ({
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const inputRef = useRef<TextInput>();
 
-  function onChange(e) {
+  function onChange(e: string) {
     setFiltersValues({...filtersValues, search: e});
   }
 

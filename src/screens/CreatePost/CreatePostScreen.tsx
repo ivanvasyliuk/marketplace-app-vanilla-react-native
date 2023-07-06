@@ -10,6 +10,7 @@ import Photos from './components/Photos';
 import s from './styles';
 import {useNavigation} from '@react-navigation/native';
 import MainInputField from '../../components/MainInputField/MainInputField';
+import {IProductModule} from '../../stores/Products/ProductModel';
 
 const initialValues = {title: '', description: '', images: [], price: ''};
 
@@ -28,7 +29,7 @@ const CreatePostScreen = () => {
   const navigation = useNavigation();
   const formRef = useRef<FormikProps<any>>();
 
-  function onSubmit(values) {
+  function onSubmit(values: Partial<IProductModule>) {
     store.products.ownStore.createProduct.run(values);
   }
   useEffect(() => {

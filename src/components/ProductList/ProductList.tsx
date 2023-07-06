@@ -1,15 +1,23 @@
 import React, {FC} from 'react';
-import {RefreshControl, View} from 'react-native';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  RefreshControl,
+  View,
+} from 'react-native';
 import {observer} from 'mobx-react';
 import {FlashList} from '@shopify/flash-list';
 import ProductItem from '../ProductItem/ProductItem';
 import s from './styles';
+import {IProductModule} from '../../stores/Products/ProductModel';
 
 interface IProductListProps {
-  list: any[];
+  list: IProductModule[];
   isRefreshing: boolean;
-  onScroll?: Function;
-  onRefresh?: Function;
+  onScroll?:
+    | ((event: NativeSyntheticEvent<NativeScrollEvent>) => void)
+    | undefined;
+  onRefresh?: (() => void) | undefined;
   ListEmptyComponent?: FC;
   ListHeaderComponent?: FC;
 }
@@ -30,7 +38,7 @@ const ProductList: FC<IProductListProps> = ({
           <ProductItem index={index} product={item} />
         )}
         numColumns={2}
-        keyExtractor={item => item.id}
+        keyExtractor={item => String(item.id)}
         ListEmptyComponent={ListEmptyComponent}
         contentContainerStyle={s.listContainer}
         estimatedItemSize={200}

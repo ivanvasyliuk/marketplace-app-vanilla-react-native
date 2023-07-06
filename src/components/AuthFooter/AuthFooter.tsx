@@ -1,15 +1,15 @@
 import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {FC} from 'react';
-import {Text, View} from 'react-native';
+import {GestureResponderEvent, Text, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import screens from '../../navigation/screens';
 import Touchable from '../Touchable/Touchable';
 import s from './styles';
 
 interface IAuthFooterProps {
-  onSubmit: Function;
+  onSubmit: () => void;
   buttonLabel: string;
-  onPress: Function;
+  onPress: (e: GestureResponderEvent) => void;
 }
 
 const AuthFooter: FC<IAuthFooterProps> = ({onSubmit, buttonLabel, onPress}) => {
