@@ -1,11 +1,11 @@
-import {useNavigation, useRoute} from '@react-navigation/native';
 import React from 'react';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import Header from '../../../components/Header/Header';
 import SearchInput from '../../../components/SearchInput/SearchInput';
 import FiltersButton from '../../../components/svg/FiltersButton';
 import Touchable from '../../../components/Touchable/Touchable';
-import screens from '../../screens';
 import CancelButton from '../CancelButton';
+import screens from '../../screens';
 
 const BrowseHeader = () => {
   const navigation = useNavigation();

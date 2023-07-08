@@ -1,12 +1,12 @@
-import React, {FC} from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import {Image} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import {dimensions} from '../../styles';
 import s from './styles';
 
 interface IImagesCarouselProps {
-  list: any[];
-  setIndex: Function;
+  list: string[];
+  setIndex: Dispatch<SetStateAction<number>>;
 }
 
 const ImagesCarousel: FC<IImagesCarouselProps> = ({list, setIndex}) => {

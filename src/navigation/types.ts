@@ -1,4 +1,6 @@
 import {filtersValuesProps} from '../screens/Browse/BrowseScreen';
+import {IProductModule} from '../stores/Products/ProductModel';
+import {IUserModule} from '../stores/users/UserModel';
 import screens from './screens';
 
 export type BrowseStackNavigatorParamList = {
@@ -11,7 +13,7 @@ export type BrowseStackNavigatorParamList = {
   [screens.Filters]: undefined;
 };
 export type ProfileStackNavigatorParamList = {
-  [screens.Profile]: undefined;
+  [screens.Profile]: {owner: IUserModule};
   [screens.PostDetailsNavigator]: undefined;
   [screens.Settings]: undefined;
 };
@@ -25,7 +27,10 @@ export type SavedStackNavigatorParamList = {
   [screens.PostDetailsNavigator]: undefined;
 };
 export type FiltersStackNavigatorParamList = {
-  [screens.FiltersScreen]: undefined;
+  [screens.FiltersScreen]: {
+    filtersValues: filtersValuesProps;
+    filtersSubmit: (filtersValues: filtersValuesProps) => void;
+  };
 };
 export type CreatePostStackNavigatorParamList = {
   [screens.CreatePost]: undefined;
@@ -48,4 +53,10 @@ export type RootStackNavigatorParamList = {
   [screens.CreatePostModal]: undefined;
   [screens.Chat]: undefined;
   [screens.FiltersModal]: undefined;
+};
+
+export type PostScreenParamList = {
+  [screens.PostDetails]: {
+    product: IProductModule;
+  };
 };

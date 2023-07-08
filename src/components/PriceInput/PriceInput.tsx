@@ -5,7 +5,7 @@ import MySegmentedControl from '../MySegmentedControl.js/MySegmentedControl';
 import s from './styles';
 
 const PriceInput = () => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState<number>(0);
 
   return (
     <View style={s.container}>

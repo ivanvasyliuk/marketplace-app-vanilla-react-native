@@ -19,7 +19,7 @@ const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
     if (owner.id === store.viewer.userModel?.id) {
       navigation.navigate(screens.ProfileTab, {
         screen: screens.Profile,
-        params: {owner: {owner: owner}},
+        params: {owner: owner},
       });
     } else {
       navigation.navigate(screens.Profile, {

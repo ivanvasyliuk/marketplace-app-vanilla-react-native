@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {observer} from 'mobx-react';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useStore} from '../../stores/createStore';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
 import FiltersList from '../../components/FiltersList/FiltersList';
-import s from './styles';
 import {BrowseStackNavigatorParamList} from '../../navigation/types';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import s from './styles';
 
 export type filtersValuesProps = {
   price: string | string[];
@@ -25,7 +25,7 @@ const BrowseScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BrowseStackNavigatorParamList>>();
   const store = useStore();
-  const {params} = useRoute();
+  const {params} = useRoute<RouteProp<BrowseStackNavigatorParamList>>();
 
   const list = store.products.latestStore.latestProducts.asArray;
 

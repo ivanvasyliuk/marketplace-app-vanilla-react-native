@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import {observer} from 'mobx-react';
-import {useRoute} from '@react-navigation/native';
+import {RouteProp, useRoute} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -24,11 +24,12 @@ import HeaderPost from '../../components/HeaderPost/HeaderPost';
 import screens from '../../navigation/screens';
 import colors from '../../styles/colors';
 import s from './styles';
+import {PostScreenParamList} from '../../navigation/types';
 
 const PostScreen = () => {
   const [allDescriptionVisible, setAllDescriptionVisible] = useState(false);
-  const [index, setIndex] = useState(0);
-  const route = useRoute();
+  const [index, setIndex] = useState<number>(0);
+  const route = useRoute<RouteProp<PostScreenParamList>>();
   const store = useStore();
 
   const product = route.params.product;

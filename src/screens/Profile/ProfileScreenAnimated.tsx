@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {observer} from 'mobx-react';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -18,10 +18,11 @@ import SettingsIcon from '../../components/svg/SettingsIcon';
 import ProductList from '../../components/ProductList/ProductList';
 import NotSellYetIcon from '../../components/svg/NotSellYetIcon';
 import s from './styles';
+import {ProfileStackNavigatorParamList} from '../../navigation/types';
 
 const ProfileScreenAnimated = () => {
   const navigation = useNavigation();
-  const route = useRoute();
+  const route = useRoute<RouteProp<ProfileStackNavigatorParamList>>();
   const headerHeight = useSharedValue(172);
   const scrollOffset = useSharedValue(0);
   const textWidth = useSharedValue(0);
@@ -30,7 +31,7 @@ const ProfileScreenAnimated = () => {
   const {top} = useSafeAreaInsets();
 
   const owner = !!route.params?.owner
-    ? route.params?.owner.owner
+    ? route.params?.owner
     : store.viewer.userModel;
 
   const isOwnerPost = store.viewer.userId === owner.id;

@@ -1,10 +1,28 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {Text, TextInput, TouchableWithoutFeedback, View} from 'react-native';
+import {filtersValuesProps} from '../../screens/Browse/BrowseScreen';
 import MySegmentedControl from '../MySegmentedControl.js/MySegmentedControl';
 import s from './styles';
 
-const PriceRangeInput = ({priceRange, setFiltersValues, filtersValues}) => {
-  const [index, setIndex] = useState(0);
+interface IPriceRangeInputProps {
+  priceRange: string[] | string;
+  setFiltersValues: Dispatch<SetStateAction<filtersValuesProps>>;
+  filtersValues: filtersValuesProps;
+}
+
+const PriceRangeInput: FC<IPriceRangeInputProps> = ({
+  priceRange,
+  setFiltersValues,
+  filtersValues,
+}) => {
+  const [index, setIndex] = useState<number>(0);
   const inputRef = useRef([]);
 
   useEffect(() => {

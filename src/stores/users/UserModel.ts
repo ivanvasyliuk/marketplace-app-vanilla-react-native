@@ -1,5 +1,7 @@
-import {types} from 'mobx-state-tree';
+import {Instance, types} from 'mobx-state-tree';
 // import { OwnProductStore } from "../Products/OwnProductsStore";
+
+export interface IUserModule extends Instance<typeof UserModel> {}
 
 export const UserModel = types.model('UserModel', {
   id: types.identifier,

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import {observer} from 'mobx-react';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Touchable from '../../components/Touchable/Touchable';
 import SearchInputField from '../../components/SearchInputField/SearchInputField';
 import PriceRangeInput from '../../components/PriceRangeInput/PriceRangeInput';
 import MySegmentedControlField from '../../components/MySegmentedControlField/MySegmentedControlField';
 import s from './styles';
+import {FiltersStackNavigatorParamList} from '../../navigation/types';
 
 type filtersValuesProps = {
   price: string | string[];
@@ -23,7 +24,7 @@ const FiltersScreen = () => {
   });
   const [sortIndex, setSortIndex] = useState(0);
   const navigation = useNavigation();
-  const route = useRoute();
+  const route = useRoute<RouteProp<FiltersStackNavigatorParamList>>();
 
   const {bottom} = useSafeAreaInsets();
 
