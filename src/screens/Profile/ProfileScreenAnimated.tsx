@@ -61,7 +61,6 @@ const ProfileScreenAnimated = () => {
 
   const headerContainer = useAnimatedStyle(() => {
     return {
-      backgroundColor: 'green',
       // marginTop: top,
       minHeight: HEADER_MIN_HEIGHT,
       height: withSpring(headerHeight.value, {
@@ -139,8 +138,8 @@ const ProfileScreenAnimated = () => {
 
   return (
     <View style={[s.container, {paddingTop: top}]}>
-      <Animated.View style={[headerContainer]}>
-        <Animated.View style={[avatarContainer]}></Animated.View>
+      <Animated.View style={headerContainer}>
+        <Animated.View style={avatarContainer}></Animated.View>
 
         <Animated.View style={textContainer}>
           <Text
@@ -162,11 +161,7 @@ const ProfileScreenAnimated = () => {
 
         <Animated.View style={backButtonContainer}>
           <Touchable
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              flex: 1,
-            }}
+            style={s.centerContainer}
             isOpacity
             onPress={() => navigation.goBack()}>
             <AntDesign name="left" size={22} />

@@ -1,12 +1,13 @@
-import React, {FC} from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import {View} from 'react-native';
 import {FlashList} from '@shopify/flash-list';
 import FiltersListItem from '../FiltersListItem/FiltersListItem';
+import {filtersValuesProps} from '../../screens/Browse/BrowseScreen';
 
 interface IFiltersListProps {
-  list: any[];
-  filtersValues?: any;
-  setFiltersValues: Function;
+  list: (string | string[])[];
+  filtersValues?: filtersValuesProps;
+  setFiltersValues: Dispatch<SetStateAction<filtersValuesProps>>;
 }
 
 const FiltersList: FC<IFiltersListProps> = ({

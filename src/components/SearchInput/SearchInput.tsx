@@ -1,13 +1,25 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {FC, useCallback, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {TextInput, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  StyleProp,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Touchable from '../Touchable/Touchable';
 import s from './styles';
+import {TextInputProps} from 'react-native';
 
 const debounce = require('lodash.debounce');
 
-const SearchInput = ({sizes, style, ...props}) => {
+interface ISearchInputProps extends TextInputProps {
+  sizes?: any;
+  style?: StyleProp<ViewStyle>;
+}
+
+const SearchInput: FC<ISearchInputProps> = ({sizes, style, ...props}) => {
   const [text, setText] = useState<string>('');
   const [isFocused, setIsFocused] = useState(false);
   const navigation = useNavigation();

@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {View, Share, Text, ScrollView, Linking, StatusBar} from 'react-native';
+import {
+  View,
+  Share,
+  Text,
+  ScrollView,
+  Linking,
+  StatusBar,
+  Alert,
+} from 'react-native';
 import {observer} from 'mobx-react';
 import {useRoute} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
@@ -46,7 +54,7 @@ const PostScreen = () => {
       } else if (result.action === Share.dismissedAction) {
         // dismissed
       }
-    } catch (error) {
+    } catch (error: any) {
       Alert.alert(error.message);
     }
   }

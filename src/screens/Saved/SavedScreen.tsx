@@ -5,6 +5,7 @@ import {observer} from 'mobx-react';
 import {useStore} from '../../stores/createStore';
 import s from './styles';
 import ProductList from '../../components/ProductList/ProductList';
+import NotSellYetIcon from '../../components/svg/NotSellYetIcon';
 
 const SavedScreen = () => {
   const store = useStore();

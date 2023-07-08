@@ -13,7 +13,7 @@ import {IProductModule} from '../../stores/Products/ProductModel';
 
 interface IProductListProps {
   list: IProductModule[];
-  isRefreshing: boolean;
+  isRefreshing?: boolean;
   onScroll?:
     | ((event: NativeSyntheticEvent<NativeScrollEvent>) => void)
     | undefined;

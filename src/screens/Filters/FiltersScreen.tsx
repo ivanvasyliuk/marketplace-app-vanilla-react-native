@@ -9,8 +9,14 @@ import PriceRangeInput from '../../components/PriceRangeInput/PriceRangeInput';
 import MySegmentedControlField from '../../components/MySegmentedControlField/MySegmentedControlField';
 import s from './styles';
 
+type filtersValuesProps = {
+  price: string | string[];
+  search: string;
+  sortBy: string;
+};
+
 const FiltersScreen = () => {
-  const [filtersValues, setFiltersValues] = useState({
+  const [filtersValues, setFiltersValues] = useState<filtersValuesProps>({
     price: '',
     search: '',
     sortBy: '',

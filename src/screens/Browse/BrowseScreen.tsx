@@ -7,6 +7,8 @@ import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
 import FiltersList from '../../components/FiltersList/FiltersList';
 import s from './styles';
+import {BrowseStackNavigatorParamList} from '../../navigation/types';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type filtersValuesProps = {
   price: string | string[];
@@ -20,7 +22,8 @@ const BrowseScreen = () => {
     search: '',
     sortBy: '',
   });
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<BrowseStackNavigatorParamList>>();
   const store = useStore();
   const {params} = useRoute();
 
@@ -31,8 +34,6 @@ const BrowseScreen = () => {
 
   function handlerFiltersSubmit(values: filtersValuesProps) {
     setFiltersValues({...filtersValues, ...values});
-
-    console.log('filters submit');
   }
 
   async function onRefresh() {

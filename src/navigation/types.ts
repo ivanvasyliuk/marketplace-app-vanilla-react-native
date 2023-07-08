@@ -1,14 +1,19 @@
+import {filtersValuesProps} from '../screens/Browse/BrowseScreen';
 import screens from './screens';
 
 export type BrowseStackNavigatorParamList = {
   [screens.Browse]: {
-    search: string;
+    search: string | undefined;
+    filtersSubmit: () => void | undefined;
+    filtersValues: filtersValuesProps | undefined;
   };
   [screens.PostDetailsNavigator]: undefined;
   [screens.Filters]: undefined;
 };
 export type ProfileStackNavigatorParamList = {
   [screens.Profile]: undefined;
+  [screens.PostDetailsNavigator]: undefined;
+  [screens.Settings]: undefined;
 };
 export type InboxStackNavigatorParamList = {
   [screens.Inbox]: undefined;
