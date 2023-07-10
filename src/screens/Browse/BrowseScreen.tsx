@@ -1,14 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {observer} from 'mobx-react';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  NavigationProp,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {useStore} from '../../stores/createStore';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
 import FiltersList from '../../components/FiltersList/FiltersList';
-import {BrowseStackNavigatorParamList} from '../../navigation/types';
+
 import s from './styles';
+import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
 
 export type filtersValuesProps = {
   price: string | string[];
@@ -23,9 +28,10 @@ const BrowseScreen = () => {
     sortBy: '',
   });
   const navigation =
-    useNavigation<NativeStackNavigationProp<BrowseStackNavigatorParamList>>();
+    useNavigation<NavigationProp<BrowseStackNavigatorParamList, 'Browse'>>();
   const store = useStore();
-  const {params} = useRoute<RouteProp<BrowseStackNavigatorParamList>>();
+  const {params} =
+    useRoute<RouteProp<BrowseStackNavigatorParamList, 'Browse'>>();
 
   const list = store.products.latestStore.latestProducts.asArray;
 

@@ -4,18 +4,26 @@ import {observer} from 'mobx-react';
 import {FlashList} from '@shopify/flash-list';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {
+  NavigationProp,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import UserImage from '../../components/UserImage/UserImage';
 import MessageItem from '../../components/MessageItem/MessageItem';
 import Touchable from '../../components/Touchable/Touchable';
 import screens from '../../navigation/screens';
 import s from './styles';
+import {RootStackNavigatorParamList} from '../../navigation/RootNavigator/types';
+// import {ChatScreenParamList} from '../../navigation/types';
 
 const ChatScreen = () => {
-  const [text, setText] = useState('');
-  const navigation = useNavigation();
-  const route = useRoute();
+  const [text, setText] = useState<string>('');
+  const navigation =
+    useNavigation<NavigationProp<RootStackNavigatorParamList, 'Chat'>>();
+  const route = useRoute<RouteProp<RootStackNavigatorParamList, 'Chat'>>();
 
   const chat = route.params.chat;
 

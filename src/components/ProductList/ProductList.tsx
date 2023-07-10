@@ -9,10 +9,10 @@ import {observer} from 'mobx-react';
 import {FlashList} from '@shopify/flash-list';
 import ProductItem from '../ProductItem/ProductItem';
 import s from './styles';
-import {IProductModule} from '../../stores/Products/ProductModel';
+import {IProductModel} from '../../stores/Products/ProductModel';
 
 interface IProductListProps {
-  list: IProductModule[];
+  list: IProductModel[];
   isRefreshing?: boolean;
   onScroll?:
     | ((event: NativeSyntheticEvent<NativeScrollEvent>) => void)

@@ -9,13 +9,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Touchable from '../Touchable/Touchable';
-import {IProductModule} from '../../stores/Products/ProductModel';
+import {IProductModel} from '../../stores/Products/ProductModel';
 import colors from '../../styles/colors';
 import {dimensions} from '../../styles';
 import s from './styles';
 
 interface IHeaderPostProps {
-  product: IProductModule;
+  product: IProductModel;
   isOwnerPost: boolean;
   onShare: Function;
 }

@@ -3,7 +3,7 @@ import {SafeAreaView, Text, View} from 'react-native';
 import {FlashList} from '@shopify/flash-list';
 import SearchItem from '../SearchItem/SearchItem';
 import s from './styles';
-import {IProductModule} from '../../stores/Products/ProductModel';
+import {IProductModel} from '../../stores/Products/ProductModel';
 
 const ListEmptyComponent = () => {
   return (
@@ -14,7 +14,7 @@ const ListEmptyComponent = () => {
 };
 
 interface ISearchListProps {
-  list: IProductModule[];
+  list: IProductModel[];
 }
 
 const SearchList: FC<ISearchListProps> = ({list}) => {

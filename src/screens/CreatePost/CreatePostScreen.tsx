@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {MutableRefObject, useEffect, useRef} from 'react';
 import {ScrollView, View} from 'react-native';
 import {observer} from 'mobx-react';
 import {Formik, FormikProps} from 'formik';
@@ -10,9 +10,15 @@ import Photos from './components/Photos';
 import s from './styles';
 import {useNavigation} from '@react-navigation/native';
 import MainInputField from '../../components/MainInputField/MainInputField';
-import {IProductModule} from '../../stores/Products/ProductModel';
+import {IProductModel} from '../../stores/Products/ProductModel';
+import screens from '../../navigation/screens';
 
-const initialValues = {title: '', description: '', images: [], price: ''};
+const initialValues: Partial<IProductModel> = {
+  title: '',
+  description: '',
+  images: [],
+  price: '',
+};
 
 // const validationSchema = yup.object({
 //   title: yup.string().required('Title is required'),
@@ -27,10 +33,11 @@ const initialValues = {title: '', description: '', images: [], price: ''};
 const CreatePostScreen = () => {
   const store = useStore();
   const navigation = useNavigation();
-  const formRef = useRef<FormikProps<any>>();
+  const formRef = useRef<FormikProps<Partial<IProductModel>>>(null);
 
-  function onSubmit(values: Partial<IProductModule>) {
+  function onSubmit(values: Partial<IProductModel>) {
     store.products.ownStore.createProduct.run(values);
+    navigation.goBack();
   }
   useEffect(() => {
     navigation.setParams({onSubmit: () => formRef.current.handleSubmit()});

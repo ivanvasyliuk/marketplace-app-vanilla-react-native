@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import InboxScreen from '../screens/Inbox/InboxScreen';
-// import PostNavigation from "./PostNavigation";
-import screens from './screens';
+import InboxScreen from '../../screens/Inbox/InboxScreen';
+import PostNavigation from '../PostNavigator/PostNavigation';
 import {InboxStackNavigatorParamList} from './types';
+import screens from '../screens';
 
 const Stack = createNativeStackNavigator<InboxStackNavigatorParamList>();
 
@@ -14,11 +14,11 @@ function InboxNavigator() {
           headerTitleAlign: 'center',
         }}>
         <Stack.Screen name={screens.Inbox} component={InboxScreen} />
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{headerShown: false}}
           name={screens.PostDetailsNavigator}
           component={PostNavigation}
-        /> */}
+        />
       </Stack.Navigator>
     </>
   );

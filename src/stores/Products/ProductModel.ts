@@ -4,7 +4,7 @@ import {ChatSchema} from '../schemas';
 import {UserModel} from '../users/UserModel';
 import {asyncModel} from '../utils';
 
-export interface IProductModule extends Instance<typeof ProductModel> {}
+export interface IProductModel extends Instance<typeof ProductModel> {}
 
 export const ProductModel = types
   .model('ProductModel', {
@@ -29,7 +29,7 @@ export const ProductModel = types
   }))
 
   .actions(store => ({
-    update(product: Partial<IProductModule>) {
+    update(product: Partial<IProductModel>) {
       Object.assign(store, product);
       if (store.saved) {
         getRoot(store).products.savedProducts.add(store);
@@ -60,7 +60,7 @@ function createChat(message) {
   };
 }
 
-function toogleFavorite(product: Partial<IProductModule>) {
+function toogleFavorite(product: Partial<IProductModel>) {
   return async function toogleFavoriteFlow(flow, store, rootStore) {
     try {
       flow.start();

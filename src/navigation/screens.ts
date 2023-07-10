@@ -1,45 +1,44 @@
-import mirror from 'mirror-to-object-pairs';
+export default {
+  App: 'App',
 
-export default mirror([
-  'App',
-
-  'Empty',
+  Empty: 'Empty',
 
   // Auth
-  'Auth',
+  Auth: 'Auth',
 
-  'Login',
-  'Register',
+  Login: 'Login',
+  Register: 'Register',
 
-  // Main App (Tab navigation)
-  'MainApp',
+  TabNavigator: 'TabNavigator',
 
-  'ProfileTab',
-  'Profile',
+  MainApp: 'MainApp',
 
-  'BrowseTab',
-  'Browse',
+  ProfileTab: 'ProfileTab',
+  Profile: 'Profile',
 
-  'CreatePostModal',
-  'CreatePost',
-  'CreatePostTab',
+  BrowseTab: 'BrowseTab',
+  Browse: 'Browse',
 
-  'SavedTab',
-  'Saved',
+  CreatePostModal: 'CreatePostModal',
+  CreatePost: 'CreatePost',
+  CreatePostTab: 'CreatePostTab',
 
-  'InboxTab',
-  'Inbox',
+  SavedTab: 'SavedTab',
+  Saved: 'Saved',
 
-  'ChatModal',
-  'Chat',
+  InboxTab: 'InboxTab',
+  Inbox: 'Inbox',
 
-  'FiltersModal',
-  'Filters',
-  'FiltersScreen',
+  ChatModal: 'ChatModal',
+  Chat: 'Chat',
 
-  'SettingsScreen',
-  'Settings',
+  FiltersModal: 'FiltersModal',
+  Filters: 'Filters',
+  FiltersScreen: 'FiltersScreen',
 
-  'PostDetails',
-  'PostDetailsNavigator',
-]);
+  SettingsScreen: 'SettingsScreen',
+  Settings: 'Settings',
+
+  PostDetails: 'PostDetails',
+  PostDetailsNavigator: 'PostDetailsNavigator',
+} as const;

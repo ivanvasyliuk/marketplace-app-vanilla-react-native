@@ -4,10 +4,10 @@ import {observer} from 'mobx-react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Touchable from '../Touchable/Touchable';
 import s from './styles';
-import {IProductModule} from '../../stores/Products/ProductModel';
+import {IProductModel} from '../../stores/Products/ProductModel';
 
 interface IFavoriteButtonProps {
-  product: IProductModule;
+  product: IProductModel;
   style: ViewStyle;
 }
 

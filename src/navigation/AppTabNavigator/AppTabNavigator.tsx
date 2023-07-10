@@ -1,16 +1,16 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text} from 'react-native';
-import BrowseNavigator from './BrowseNavigator';
-import TabBar from './components/TabBar';
-import CreatePostNavigator from './CreatePostNavigator';
-import InboxNavigator from './InboxNavigator';
-import ProfileNavigator from './ProfileNavigator';
-import SavedNavigator from './SavedNavigator';
-import screens from './screens';
-import {BottomTabNavigatorParamList} from './types';
+import BrowseNavigator from '../BrowseNavigator/BrowseNavigator';
+import TabBar from '../components/TabBar';
+import CreatePostNavigator from '../CreatePostNavigator/CreatePostNavigator';
+import InboxNavigator from '../InboxNavigator/InboxNavigator';
+import ProfileNavigator from '../ProfileNavigator/ProfileNavigator';
+import SavedNavigator from '../SavedNavigator/SavedNavigator';
+import {AppTabNavigatorParamList} from './types';
+import screens from '../screens';
 
-const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
+const Tab = createBottomTabNavigator<AppTabNavigatorParamList>();
 
 const AppTabNavigator = () => {
   return (

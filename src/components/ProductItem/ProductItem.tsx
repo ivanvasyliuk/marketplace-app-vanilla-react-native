@@ -6,10 +6,10 @@ import screens from '../../navigation/screens';
 import Touchable from '../Touchable/Touchable';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import s from './styles';
-import {IProductModule} from '../../stores/Products/ProductModel';
+import {IProductModel} from '../../stores/Products/ProductModel';
 
 interface IProductItemProps {
-  product: IProductModule;
+  product: IProductModel;
   index: number;
 }
 

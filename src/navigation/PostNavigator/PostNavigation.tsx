@@ -1,10 +1,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import PostScreen from '../screens/Post/PostScreen';
-import ProfileScreenAnimated from '../screens/Profile/ProfileScreenAnimated';
-import screens from './screens';
+import PostScreen from '../../screens/Post/PostScreen';
+import ProfileScreenAnimated from '../../screens/Profile/ProfileScreenAnimated';
+import {PostStackNavigatorParamList} from './types';
+import screens from '../screens';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<PostStackNavigatorParamList>();
 
 function PostNavigation() {
   return (

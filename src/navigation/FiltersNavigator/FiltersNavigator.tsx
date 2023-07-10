@@ -2,14 +2,13 @@ import React from 'react';
 import {Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import FiltersScreen from '../screens/Filters/FiltersScreen';
-import Touchable from '../components/Touchable/Touchable';
+import FiltersScreen from '../../screens/Filters/FiltersScreen';
+import Touchable from '../../components/Touchable/Touchable';
 import {FiltersStackNavigatorParamList} from './types';
-import colors from '../styles/colors';
-import screens from './screens';
+import colors from '../../styles/colors';
+import screens from '../screens';
 
-// const Stack = createNativeStackNavigator<FiltersStackNavigatorParamList>();
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<FiltersStackNavigatorParamList>();
 
 function FiltersNavigator() {
   return (

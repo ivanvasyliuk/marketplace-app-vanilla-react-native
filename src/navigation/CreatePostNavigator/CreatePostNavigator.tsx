@@ -2,11 +2,11 @@ import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Touchable from '../components/Touchable/Touchable';
-import CreatePostScreen from '../screens/CreatePost/CreatePostScreen';
+import Touchable from '../../components/Touchable/Touchable';
+import CreatePostScreen from '../../screens/CreatePost/CreatePostScreen';
 import {CreatePostStackNavigatorParamList} from './types';
-import screens from './screens';
-import colors from '../styles/colors';
+import screens from '../screens';
+import colors from '../../styles/colors';
 
 const Stack = createNativeStackNavigator<CreatePostStackNavigatorParamList>();
 

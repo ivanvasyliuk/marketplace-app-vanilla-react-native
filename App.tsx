@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import RootNavigator from './src/navigation';
+import RootNavigator from './src/navigation/RootNavigator/RootNavigator';
 import {createStore, Provider} from './src/stores/createStore';
 
 const store = createStore();

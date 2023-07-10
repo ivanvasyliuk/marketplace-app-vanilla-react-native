@@ -7,8 +7,8 @@ import Touchable from '../../components/Touchable/Touchable';
 import SearchInputField from '../../components/SearchInputField/SearchInputField';
 import PriceRangeInput from '../../components/PriceRangeInput/PriceRangeInput';
 import MySegmentedControlField from '../../components/MySegmentedControlField/MySegmentedControlField';
-import s from './styles';
 import {FiltersStackNavigatorParamList} from '../../navigation/types';
+import s from './styles';
 
 type filtersValuesProps = {
   price: string | string[];

@@ -2,11 +2,11 @@ import React from 'react';
 import {observer} from 'mobx-react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Touchable from '../components/Touchable/Touchable';
-import SettingsScreen from '../screens/Settings/SettingsScreen';
-import {useStore} from '../stores/createStore';
-import colors from '../styles/colors';
-import screens from './screens';
+import Touchable from '../../components/Touchable/Touchable';
+import SettingsScreen from '../../screens/Settings/SettingsScreen';
+import {useStore} from '../../stores/createStore';
+import colors from '../../styles/colors';
+import screens from '../screens';
 
 const Stack = createNativeStackNavigator();
 
