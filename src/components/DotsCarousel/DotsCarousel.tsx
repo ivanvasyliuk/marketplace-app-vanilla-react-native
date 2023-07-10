@@ -20,11 +20,13 @@ const DotsCarousel: FC<IDotsCarouselProps> = ({index, list}) => {
           color: 'white',
           margin: 3,
           size: 8,
+          opacity: 1,
         }}
         inactiveIndicatorConfig={{
           color: 'gray',
           margin: 3,
           size: 8,
+          opacity: 1,
         }}
         decreasingDots={[
           {

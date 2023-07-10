@@ -26,7 +26,7 @@ function CreatePostNavigator() {
             );
           },
           headerRight: props => (
-            <Touchable onPress={() => route.params.onSubmit()}>
+            <Touchable onPress={route.params.onSubmit}>
               <Text style={style.postLabel}>Post</Text>
             </Touchable>
           ),

@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
-
-import s from './styles';
+import {filtersValuesProps} from '../../screens/Browse/BrowseScreen';
 import colors from '../../styles/colors';
+import s from './styles';
 
-const MySegmentedControlField = ({
+interface IMySegmentedControlFieldProps {
+  values: string[];
+  index: number;
+  setIndex: Dispatch<SetStateAction<number>>;
+  value: string;
+  filtersValues: filtersValuesProps;
+  setFiltersValues: Dispatch<SetStateAction<filtersValuesProps>>;
+}
+
+const MySegmentedControlField: FC<IMySegmentedControlFieldProps> = ({
   values,
   index,
   setIndex,
@@ -12,6 +21,7 @@ const MySegmentedControlField = ({
   filtersValues,
   setFiltersValues,
 }) => {
+  console.log('MySegmentedControlField', value);
   return (
     <SegmentedControl
       style={s.borderForSegment}

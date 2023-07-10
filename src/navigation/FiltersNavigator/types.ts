@@ -3,7 +3,7 @@ import screens from '../screens';
 
 export type FiltersStackNavigatorParamList = {
   [screens.FiltersScreen]: {
-    filtersValues: filtersValuesProps;
-    filtersSubmit: (filtersValues: filtersValuesProps) => void;
+    filtersValues?: filtersValuesProps;
+    filtersSubmit?: (values: filtersValuesProps) => void;
   };
 };

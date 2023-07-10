@@ -14,16 +14,28 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import UserImage from '../../components/UserImage/UserImage';
 import MessageItem from '../../components/MessageItem/MessageItem';
 import Touchable from '../../components/Touchable/Touchable';
+import {
+  AppStackNavigatorParamList,
+  CompositeNavigationWithAppNavigatorType,
+} from '../../navigation/AppNavigator/types';
 import screens from '../../navigation/screens';
 import s from './styles';
-import {RootStackNavigatorParamList} from '../../navigation/RootNavigator/types';
+import {AppTabNavigatorParamList} from '../../navigation/AppTabNavigator/types';
+import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
+import {PostStackNavigatorParamList} from '../../navigation/PostNavigator/types';
 // import {ChatScreenParamList} from '../../navigation/types';
 
 const ChatScreen = () => {
   const [text, setText] = useState<string>('');
   const navigation =
-    useNavigation<NavigationProp<RootStackNavigatorParamList, 'Chat'>>();
-  const route = useRoute<RouteProp<RootStackNavigatorParamList, 'Chat'>>();
+    useNavigation<
+      CompositeNavigationWithAppNavigatorType<
+        AppTabNavigatorParamList<'TabNavigator'>
+      >
+    >();
+  // const navigation =
+  //   useNavigation<NavigationProp<AppStackNavigatorParamList, 'Chat'>>();
+  const route = useRoute<RouteProp<AppStackNavigatorParamList, 'Chat'>>();
 
   const chat = route.params.chat;
 

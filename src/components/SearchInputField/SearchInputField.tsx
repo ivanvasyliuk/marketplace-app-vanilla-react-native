@@ -29,14 +29,14 @@ const SearchInputField: FC<ISearchInputFieldProps> = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const inputRef = useRef<TextInput>();
+  const inputRef = useRef<TextInput>(null);
 
   function onChange(e: string) {
     setFiltersValues({...filtersValues, search: e});
   }
 
   return (
-    <TouchableWithoutFeedback onPress={() => inputRef.current.focus()}>
+    <TouchableWithoutFeedback onPress={() => inputRef.current?.focus()}>
       <View style={[s.container, isFocused && s.containerOnFocus, style]}>
         <AntDesign
           style={[s.searchIcon, isFocused && s.focusedIcon]}

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {useFormikContext} from 'formik';
 import MainInput from '../MainInput/MainInput';
+import {TextInputProps} from 'react-native';
 
-const MainInputField = ({name, ...props}) => {
+interface IMainInputFieldProps extends TextInputProps {
+  name: string;
+}
+
+const MainInputField: FC<IMainInputFieldProps> = ({name, ...props}) => {
   const {values, handleChange, errors, touched} = useFormikContext();
+
   return (
     <MainInput
       {...props}

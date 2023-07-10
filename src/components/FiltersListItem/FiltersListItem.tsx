@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import {Text, View} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {filtersValuesProps} from '../../screens/Browse/BrowseScreen';
 import Touchable from '../Touchable/Touchable';
 import s from './styles';
 
-const FiltersListItem = ({filter, setFiltersValues, filtersValues}) => {
+interface IFiltersListItemProps {
+  filter: string | string[];
+  setFiltersValues: Dispatch<SetStateAction<filtersValuesProps>>;
+  filtersValues: filtersValuesProps;
+}
+
+const FiltersListItem: FC<IFiltersListItemProps> = ({
+  filter,
+  setFiltersValues,
+  filtersValues,
+}) => {
   const filterValue = Array.isArray(filter)
     ? `${filter[0]} - ${filter[1]}`
     : filter;

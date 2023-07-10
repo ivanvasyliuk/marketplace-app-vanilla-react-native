@@ -2,13 +2,20 @@ import React from 'react';
 import {Field, Formik} from 'formik';
 import {observer} from 'mobx-react';
 import {View} from 'react-native';
-import {CommonActions, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  CommonActions,
+  NavigationProp,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import * as yup from 'yup';
 import AuthFooter from '../../../components/AuthFooter/AuthFooter';
 import Input from '../../../components/Input/Input';
 import {useStore} from '../../../stores/createStore';
 import screens from '../../../navigation/screens';
 import s from './styles';
+import {AuthStackNavigatorParamList} from '../../../navigation/AuthNavigator/types';
 
 type onSubmitParamsProps = {
   email: string;
@@ -25,22 +32,23 @@ const validationSchema = yup.object({
   repeatPassword: yup
     .string()
     .required('Passwords don’t match.')
-    .oneOf([yup.ref('password'), null], 'Passwords don’t match.'),
+    .oneOf([yup.ref('password')], 'Passwords don’t match.'),
 });
 
 const RegisterScreen = () => {
   const store = useStore();
-  const route = useRoute();
-  const navigation = useNavigation();
+  const route = useRoute<RouteProp<AuthStackNavigatorParamList, 'Register'>>();
+  const navigation =
+    useNavigation<NavigationProp<AuthStackNavigatorParamList, 'Register'>>();
 
   const resetAction = route.params.resetAction;
 
   async function onSubmit({email, password}: onSubmitParamsProps) {
     await store.auth.register.run({email, password});
-    if (route.params.resetAction) {
+    if (!!route.params.resetAction) {
       resetAction();
     }
-    navigation.getParent().dispatch(state => {
+    navigation.getParent()?.dispatch(state => {
       const routes = state.routes.filter(r => r.name !== screens.Auth);
 
       return CommonActions.reset({

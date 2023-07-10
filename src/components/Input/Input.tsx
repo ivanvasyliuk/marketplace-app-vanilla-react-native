@@ -1,14 +1,38 @@
-import React, {useRef, useState} from 'react';
+import {FormikErrors, FormikTouched} from 'formik';
+import React, {FC, useRef, useState} from 'react';
+import {TextInputProps} from 'react-native';
 import {View, TextInput, Text, TouchableWithoutFeedback} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import s from './styles';
 
-const Input = ({label, name, handleChange, errors, touched, ...props}) => {
+interface IInputProps extends TextInputProps {
+  label: string;
+  name: string;
+  handleChange: {
+    (e: React.ChangeEvent<any>): void;
+    <T = string | React.ChangeEvent<any>>(
+      field: T,
+    ): T extends React.ChangeEvent<any>
+      ? void
+      : (e: string | React.ChangeEvent<any>) => void;
+  };
+  errors: FormikErrors<any>;
+  touched: FormikTouched<any>;
+}
+
+const Input: FC<IInputProps> = ({
+  label,
+  name,
+  handleChange,
+  errors,
+  touched,
+  ...props
+}) => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef();
-  const hasError = errors[name] && touched[name];
+  const inputRef = useRef(null);
+  const hasError: boolean = !!errors[name] && !!touched[name];
   return (
-    <TouchableWithoutFeedback onPress={() => inputRef.current.focus()}>
+    <TouchableWithoutFeedback onPress={() => inputRef.current?.focus()}>
       <View style={s.container}>
         <View
           style={[
@@ -20,7 +44,6 @@ const Input = ({label, name, handleChange, errors, touched, ...props}) => {
           <TextInput
             ref={inputRef}
             {...props}
-            style={s.input}
             onChangeText={handleChange(name)}
             onBlur={() => setIsFocused(false)}
             onFocus={() => setIsFocused(true)}
@@ -34,7 +57,7 @@ const Input = ({label, name, handleChange, errors, touched, ...props}) => {
           )}
         </View>
         <Text style={[hasError ? s.redErrorText : s.grayErrorText]}>
-          {errors[name] && errors[name]}
+          {`${errors[name] && errors[name]}`}
         </Text>
       </View>
     </TouchableWithoutFeedback>

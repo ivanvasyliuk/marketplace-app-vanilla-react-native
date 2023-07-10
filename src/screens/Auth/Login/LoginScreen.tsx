@@ -1,5 +1,11 @@
 import React from 'react';
-import {CommonActions, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  CommonActions,
+  NavigationProp,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {View, KeyboardAvoidingView} from 'react-native';
 import {Formik} from 'formik';
 import {observer} from 'mobx-react';
@@ -9,6 +15,7 @@ import AuthFooter from '../../../components/AuthFooter/AuthFooter';
 import {useStore} from '../../../stores/createStore';
 import screens from '../../../navigation/screens';
 import s from './styles';
+import {AuthStackNavigatorParamList} from '../../../navigation/AuthNavigator/types';
 
 type onSubmitParamsProps = {
   email: string;
@@ -26,17 +33,18 @@ const validationSchema = yup.object({
 
 const LoginScreen = () => {
   const store = useStore();
-  const route = useRoute();
-  const navigation = useNavigation();
+  const route = useRoute<RouteProp<AuthStackNavigatorParamList, 'Login'>>();
+  const navigation =
+    useNavigation<NavigationProp<AuthStackNavigatorParamList, 'Login'>>();
 
   const resetAction = route.params.resetAction;
 
   async function onSubmit({email, password}: onSubmitParamsProps) {
     await store.auth.login.run({email, password});
-    if (route.params.resetAction) {
+    if (!!route.params.resetAction) {
       resetAction();
     }
-    navigation.getParent().dispatch(state => {
+    navigation.getParent()?.dispatch(state => {
       const routes = state.routes.filter(r => r.name !== screens.Auth);
 
       return CommonActions.reset({

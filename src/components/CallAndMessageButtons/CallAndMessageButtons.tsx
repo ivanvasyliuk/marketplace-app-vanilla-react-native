@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import CallIcon from '../svg/CallIcon';
 import MessageIcon from '../svg/MessageIcon';

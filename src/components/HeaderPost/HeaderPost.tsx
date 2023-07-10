@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {View} from 'react-native';
+import {GestureResponderEvent, View} from 'react-native';
 import {observer} from 'mobx-react';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -17,7 +17,7 @@ import s from './styles';
 interface IHeaderPostProps {
   product: IProductModel;
   isOwnerPost: boolean;
-  onShare: Function;
+  onShare?: (event: GestureResponderEvent) => void;
 }
 
 const HeaderPost: FC<IHeaderPostProps> = ({product, isOwnerPost, onShare}) => {

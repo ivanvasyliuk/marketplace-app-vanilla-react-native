@@ -12,7 +12,7 @@ interface IButtonAddPhotoProps {
 }
 
 const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
-  const actionRef = useRef();
+  const actionRef = useRef(null);
   const {
     values: {images},
     setFieldValue,
@@ -47,7 +47,7 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
     }
   }
 
-  function onChoose(index) {
+  function onChoose(index: number) {
     if (index == 0) {
       onOpenCamera();
     }
