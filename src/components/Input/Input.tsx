@@ -29,7 +29,7 @@ const Input: FC<IInputProps> = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<TextInput>(null);
   const hasError: boolean = !!errors[name] && !!touched[name];
   return (
     <TouchableWithoutFeedback onPress={() => inputRef.current?.focus()}>

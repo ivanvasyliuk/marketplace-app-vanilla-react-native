@@ -9,7 +9,7 @@ import {AuthStackNavigatorParamList} from '../../navigation/AuthNavigator/types'
 import {AppStackNavigatorParamList} from '../../navigation/AppNavigator/types';
 
 interface IGoToLoginButtonProps {
-  resetAction: () => void;
+  resetAction?: () => void;
 }
 
 const GoToLoginButton: FC<IGoToLoginButtonProps> = ({resetAction}) => {

@@ -2,9 +2,9 @@ import screens from '../screens';
 
 export type AuthStackNavigatorParamList = {
   [screens.Login]: {
-    resetAction: () => void;
+    resetAction?: () => void;
   };
   [screens.Register]: {
-    resetAction: () => void;
+    resetAction?: () => void;
   };
 };

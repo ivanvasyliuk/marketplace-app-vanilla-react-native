@@ -21,7 +21,7 @@ const FiltersListItem: FC<IFiltersListItemProps> = ({
     : filter;
 
   const filterKey = Object.keys(filtersValues).find(
-    key => filtersValues[key] === filter,
+    key => (filtersValues as any)[key] === filter,
   );
 
   return (
@@ -30,7 +30,9 @@ const FiltersListItem: FC<IFiltersListItemProps> = ({
       <Touchable
         style={s.touchable}
         isOpacity
-        onPress={() => setFiltersValues({...filtersValues, [filterKey]: ''})}>
+        onPress={() =>
+          setFiltersValues({...filtersValues, [filterKey as string]: ''})
+        }>
         <AntDesign name="close" color="gray" size={16} />
       </Touchable>
     </View>

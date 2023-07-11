@@ -23,13 +23,13 @@ const PriceRangeInput: FC<IPriceRangeInputProps> = ({
   filtersValues,
 }) => {
   const [index, setIndex] = useState<number>(0);
-  const inputRef = useRef([]);
+  const inputRef = useRef<any>([]);
 
   useEffect(() => {
     if (index == 1) {
       setFiltersValues({
         ...filtersValues,
-        price: [0, 0],
+        price: ['0', '0'],
       });
     }
   }, [index]);

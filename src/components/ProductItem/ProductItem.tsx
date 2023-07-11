@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import {observer} from 'mobx-react';
 import {Image, Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import screens from '../../navigation/screens';
 import Touchable from '../Touchable/Touchable';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import s from './styles';
 import {IProductModel} from '../../stores/Products/ProductModel';
+import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
 
 interface IProductItemProps {
   product: IProductModel;
@@ -14,7 +15,8 @@ interface IProductItemProps {
 }
 
 const ProductItem: FC<IProductItemProps> = ({product, index}) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NavigationProp<BrowseStackNavigatorParamList, 'Browse'>>();
 
   function onPress() {
     navigation.navigate(screens.PostDetailsNavigator, {
@@ -26,7 +28,7 @@ const ProductItem: FC<IProductItemProps> = ({product, index}) => {
   return (
     <Touchable onPress={onPress}>
       <View style={[s.container, index % 2 == 0 ? s.left : s.right]}>
-        <Image style={s.image} source={{uri: product.photos[0]}} />
+        <Image style={s.image} source={{uri: product.photos?.[0]}} />
         <Text style={s.itemTitle}>{product.title}</Text>
         <Text style={s.itemPrice}>${product.price}</Text>
         <FavoriteButton product={product} style={s.saveButton} />

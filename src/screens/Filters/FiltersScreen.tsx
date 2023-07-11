@@ -7,7 +7,7 @@ import Touchable from '../../components/Touchable/Touchable';
 import SearchInputField from '../../components/SearchInputField/SearchInputField';
 import PriceRangeInput from '../../components/PriceRangeInput/PriceRangeInput';
 import MySegmentedControlField from '../../components/MySegmentedControlField/MySegmentedControlField';
-import {FiltersStackNavigatorParamList} from '../../navigation/types';
+import {FiltersStackNavigatorParamList} from '../../navigation/FiltersNavigator/types';
 import s from './styles';
 
 type filtersValuesProps = {
@@ -24,7 +24,8 @@ const FiltersScreen = () => {
   });
   const [sortIndex, setSortIndex] = useState(0);
   const navigation = useNavigation();
-  const route = useRoute<RouteProp<FiltersStackNavigatorParamList>>();
+  const route =
+    useRoute<RouteProp<FiltersStackNavigatorParamList, 'FiltersScreen'>>();
 
   const {bottom} = useSafeAreaInsets();
 
@@ -38,7 +39,7 @@ const FiltersScreen = () => {
   }, []);
 
   function onSubmit() {
-    route.params.filtersSubmit(filtersValues);
+    route.params.filtersSubmit?.(filtersValues);
 
     navigation.goBack();
   }

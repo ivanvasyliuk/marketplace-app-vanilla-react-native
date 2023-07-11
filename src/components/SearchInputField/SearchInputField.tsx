@@ -17,7 +17,7 @@ interface ISearchInputFieldProps extends TextInputProps {
   style?: StyleProp<TextStyle>;
   filtersValues: filtersValuesProps;
   setFiltersValues: (filtersValues: filtersValuesProps) => void;
-  value: any;
+  value: string;
 }
 
 const SearchInputField: FC<ISearchInputFieldProps> = ({

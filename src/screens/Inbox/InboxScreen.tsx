@@ -22,7 +22,7 @@ const InboxScreen = () => {
         <FlashList
           data={chats.list}
           renderItem={({item}) => <InboxChatItem chat={item} />}
-          keyExtractor={item => item.id}
+          keyExtractor={item => String(item.id)}
           refreshing={chats.fetch.isLoading}
           ListEmptyComponent={<EmptyInboxSvg />}
           ListFooterComponent={() => <View style={s.listHeaderComponent} />}

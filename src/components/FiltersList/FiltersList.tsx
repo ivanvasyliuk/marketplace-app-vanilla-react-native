@@ -6,7 +6,7 @@ import {filtersValuesProps} from '../../screens/Browse/BrowseScreen';
 
 interface IFiltersListProps {
   list: (string | string[])[];
-  filtersValues?: filtersValuesProps;
+  filtersValues: filtersValuesProps;
   setFiltersValues: Dispatch<SetStateAction<filtersValuesProps>>;
 }
 

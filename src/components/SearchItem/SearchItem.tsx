@@ -1,17 +1,19 @@
 import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native';
-import s from './styles';
-import screens from '../../navigation/screens';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
 import Touchable from '../Touchable/Touchable';
+import screens from '../../navigation/screens';
+import s from './styles';
 
 interface ISearchItemProps {
   product: any;
 }
 
 const SearchItem: FC<ISearchItemProps> = ({product}) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NavigationProp<BrowseStackNavigatorParamList, 'Browse'>>();
 
   function onPress() {
     navigation.navigate(screens.PostDetailsNavigator, {

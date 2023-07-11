@@ -11,7 +11,7 @@ interface IMessageItemProps {
 const MessageItem: FC<IMessageItemProps> = ({message}) => {
   const store = useStore();
 
-  const isViewerMessage = message.ownerId == store.viewer.userModel.id;
+  const isViewerMessage = message.ownerId == store.viewer.userModel?.id;
   return (
     <View style={s.container}>
       <View

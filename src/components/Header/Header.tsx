@@ -1,10 +1,14 @@
-import React, {FC} from 'react';
+import React, {FC, ReactNode} from 'react';
 import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {dimensions} from '../../styles';
 import s from './styles';
 
-const Header = ({children}) => {
+interface IHeaderProps {
+  children: ReactNode;
+}
+
+const Header: FC<IHeaderProps> = ({children}) => {
   const {top} = useSafeAreaInsets();
 
   return (

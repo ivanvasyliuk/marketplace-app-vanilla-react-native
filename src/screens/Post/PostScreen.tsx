@@ -21,15 +21,15 @@ import DotsCarousel from '../../components/DotsCarousel/DotsCarousel';
 import SellerInfo from '../../components/SellerInfo/SellerInfo';
 import ImagesCarousel from '../../components/ImagesCarousel/ImagesCarousel';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
-import screens from '../../navigation/screens';
+import {PostStackNavigatorParamList} from '../../navigation/PostNavigator/types';
 import colors from '../../styles/colors';
 import s from './styles';
-import {PostScreenParamList} from '../../navigation/types';
 
 const PostScreen = () => {
   const [allDescriptionVisible, setAllDescriptionVisible] = useState(false);
   const [index, setIndex] = useState<number>(0);
-  const route = useRoute<RouteProp<PostScreenParamList>>();
+  const route =
+    useRoute<RouteProp<PostStackNavigatorParamList, 'PostDetails'>>();
   const store = useStore();
 
   const product = route.params.product;
@@ -113,7 +113,7 @@ const PostScreen = () => {
             <Text style={s.descrioption}>
               {allDescriptionVisible
                 ? product.description
-                : product.description.slice(0, 145)}
+                : product.description?.slice(0, 145)}
             </Text>
             <Touchable
               isOpacity

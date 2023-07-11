@@ -5,6 +5,7 @@ import {FlashList} from '@shopify/flash-list';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {
+  CompositeScreenProps,
   NavigationProp,
   RouteProp,
   useNavigation,
@@ -20,21 +21,27 @@ import {
 } from '../../navigation/AppNavigator/types';
 import screens from '../../navigation/screens';
 import s from './styles';
+import {FiltersStackNavigatorParamList} from '../../navigation/FiltersNavigator/types';
+import {PostStackNavigatorParamList} from '../../navigation/PostNavigator/types';
 import {AppTabNavigatorParamList} from '../../navigation/AppTabNavigator/types';
 import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
-import {PostStackNavigatorParamList} from '../../navigation/PostNavigator/types';
-// import {ChatScreenParamList} from '../../navigation/types';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 const ChatScreen = () => {
   const [text, setText] = useState<string>('');
-  const navigation =
-    useNavigation<
-      CompositeNavigationWithAppNavigatorType<
-        AppTabNavigatorParamList<'TabNavigator'>
-      >
-    >();
   // const navigation =
-  //   useNavigation<NavigationProp<AppStackNavigatorParamList, 'Chat'>>();
+  //   useNavigation<
+  //     CompositeNavigationWithAppNavigatorType<
+  //       StackNavigationProp<
+  //         BrowseStackNavigatorParamList,
+  //         'PostDetailsNavigator'
+  //       >
+  //     >
+  //   >();
+  const navigation =
+    useNavigation<NativeStackScreenProps<AppStackNavigatorParamList, 'Chat'>>();
   const route = useRoute<RouteProp<AppStackNavigatorParamList, 'Chat'>>();
 
   const chat = route.params.chat;
