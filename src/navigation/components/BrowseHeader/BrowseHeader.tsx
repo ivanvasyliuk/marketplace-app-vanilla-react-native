@@ -11,13 +11,13 @@ import FiltersButton from '../../../components/svg/FiltersButton';
 import Touchable from '../../../components/Touchable/Touchable';
 import CancelButton from '../CancelButton';
 import {BrowseStackNavigatorParamList} from '../../BrowseNavigator/types';
-import {CompositeNavigationWithAppNavigatorType} from '../../AppNavigator/types';
+import {CompositeNavigationWithAppStackNavigatorType} from '../../AppNavigator/types';
 import screens from '../../screens';
 
 const BrowseHeader = () => {
   const navigation =
     useNavigation<
-      CompositeNavigationWithAppNavigatorType<
+      CompositeNavigationWithAppStackNavigatorType<
         NavigationProp<BrowseStackNavigatorParamList>
       >
     >();

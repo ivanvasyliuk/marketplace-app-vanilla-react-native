@@ -11,9 +11,8 @@ import {useStore} from '../../stores/createStore';
 import ProductList from '../../components/ProductList/ProductList';
 import SearchList from '../../components/SearchList/SearchList';
 import FiltersList from '../../components/FiltersList/FiltersList';
-
-import s from './styles';
 import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
+import s from './styles';
 
 export type filtersValuesProps = {
   price: string | string[];

@@ -46,6 +46,7 @@ const MainInput: FC<IMainInputProps> = ({
           onChangeText={handleChange(name)}
           onBlur={() => setIsFocused(false)}
           onFocus={() => setIsFocused(true)}
+          value={value}
         />
       </View>
       <View style={s.inEnd}>

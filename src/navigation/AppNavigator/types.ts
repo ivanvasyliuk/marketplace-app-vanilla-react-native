@@ -20,6 +20,6 @@ export type AppStackNavigatorParamList = {
   [screens.FiltersModal]: NavigatorScreenParams<FiltersStackNavigatorParamList>;
 };
 
-export type CompositeNavigationWithAppNavigatorType<
+export type CompositeNavigationWithAppStackNavigatorType<
   T extends NavigationProp<ParamListBase, string, any, any>,
 > = CompositeNavigationProp<T, StackNavigationProp<AppStackNavigatorParamList>>;

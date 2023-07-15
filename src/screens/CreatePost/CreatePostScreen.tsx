@@ -1,5 +1,13 @@
-import React, {MutableRefObject, useEffect, useRef} from 'react';
-import {ScrollView, View} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  KeyboardAvoidingViewBase,
+  Platform,
+  ScrollView,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {observer} from 'mobx-react';
 import {Formik, FormikHelpers, FormikProps} from 'formik';
 import * as yup from 'yup';
@@ -7,12 +15,11 @@ import Title from '../../components/Title/Title';
 import PriceInput from '../../components/PriceInput/PriceInput';
 import {useStore} from '../../stores/createStore';
 import Photos from './components/Photos';
-import s from './styles';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import MainInputField from '../../components/MainInputField/MainInputField';
 import {IProductModel} from '../../stores/Products/ProductModel';
-import screens from '../../navigation/screens';
 import {CreatePostStackNavigatorParamList} from '../../navigation/CreatePostNavigator/types';
+import s from './styles';
 
 const initialValues: Partial<IProductModel> = {
   title: '',
@@ -32,12 +39,12 @@ const initialValues: Partial<IProductModel> = {
 // });
 
 const CreatePostScreen = () => {
-  const store = useStore();
   const navigation =
     useNavigation<
       NavigationProp<CreatePostStackNavigatorParamList, 'CreatePost'>
     >();
   const formRef = useRef<FormikProps<Partial<IProductModel>>>(null);
+  const store = useStore();
 
   function onSubmit(
     values: Partial<IProductModel>,
@@ -52,34 +59,35 @@ const CreatePostScreen = () => {
   }, []);
 
   return (
-    <ScrollView style={s.container}>
-      <View style={s.contentContainer}>
-        <Formik
-          innerRef={formRef}
-          initialValues={initialValues}
-          onSubmit={onSubmit}
-          // validationSchema={validationSchema}
-        >
-          {({handleChange, handleBlur, handleSubmit, values}) => (
-            <View>
-              <View style={s.keyInpormationContaine}>
-                <Title title="Key information" />
-                <MainInputField placeholder="Title" name="title" />
-                <Title title="Description" />
-                <MainInputField
-                  placeholder="Description"
-                  style={s.descriptionInput}
-                  multiline={true}
-                  name="description"
-                />
+    <View style={s.container}>
+      <ScrollView contentContainerStyle={s.contentContainer}>
+        <View style={s.contentContainer}>
+          <Formik
+            innerRef={formRef}
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            // validationSchema={validationSchema}
+          >
+            {() => (
+              <View>
+                <View style={s.keyInpormationContaine}>
+                  <Title title="Key information" />
+                  <MainInputField placeholder="Title" name="title" />
+                  <MainInputField
+                    placeholder="Description"
+                    style={s.descriptionInput}
+                    multiline={true}
+                    name="description"
+                  />
+                </View>
+                <Photos />
+                <PriceInput />
               </View>
-              <Photos />
-              <PriceInput />
-            </View>
-          )}
-        </Formik>
-      </View>
-    </ScrollView>
+            )}
+          </Formik>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 

@@ -8,7 +8,7 @@ interface IMainInputFieldProps extends TextInputProps {
 }
 
 const MainInputField: FC<IMainInputFieldProps> = ({name, ...props}) => {
-  const {values, handleChange, errors, touched} = useFormikContext();
+  const {values, handleChange, errors, touched} = useFormikContext<any>();
 
   return (
     <MainInput

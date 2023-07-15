@@ -12,7 +12,7 @@ import MessageItem from '../../components/MessageItem/MessageItem';
 import Touchable from '../../components/Touchable/Touchable';
 import {
   AppStackNavigatorParamList,
-  CompositeNavigationWithAppNavigatorType,
+  CompositeNavigationWithAppStackNavigatorType,
 } from '../../navigation/AppNavigator/types';
 import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
 import screens from '../../navigation/screens';
@@ -22,7 +22,7 @@ const ChatScreen = () => {
   const [text, setText] = useState<string>('');
   const navigation =
     useNavigation<
-      CompositeNavigationWithAppNavigatorType<
+      CompositeNavigationWithAppStackNavigatorType<
         StackNavigationProp<
           BrowseStackNavigatorParamList,
           'PostDetailsNavigator'

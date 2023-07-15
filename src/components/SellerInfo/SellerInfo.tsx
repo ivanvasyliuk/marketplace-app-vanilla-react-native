@@ -7,13 +7,15 @@ import UserImage from '../UserImage/UserImage';
 import {IUserModel} from '../../stores/users/UserModel';
 import screens from '../../navigation/screens';
 import s from './styles';
+import {CompositeNavigationWithAppStackNavigatorType} from '../../navigation/AppNavigator/types';
 
 interface ISellerInfoProps {
   owner: IUserModel;
 }
 
 const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<CompositeNavigationWithAppStackNavigatorType>();
   const store = useStore();
 
   function onPress() {
