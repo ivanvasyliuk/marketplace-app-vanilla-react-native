@@ -3,7 +3,7 @@ import {Image, View} from 'react-native';
 import s from './styles';
 
 interface IUserImageProps {
-  image: string;
+  image?: string;
   size: number;
 }
 

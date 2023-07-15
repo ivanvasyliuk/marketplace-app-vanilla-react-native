@@ -1,5 +1,5 @@
-import React, {FC, useRef, useState} from 'react';
-import {Text, View} from 'react-native';
+import React, {FC, useRef} from 'react';
+import {View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as ImagePicker from 'react-native-image-picker';
 import {useFormikContext} from 'formik';
@@ -12,11 +12,11 @@ interface IButtonAddPhotoProps {
 }
 
 const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
-  const actionRef = useRef(null);
+  const actionRef = useRef<ActionSheet>(null);
   const {
     values: {images},
     setFieldValue,
-  } = useFormikContext();
+  } = useFormikContext<{images: string[]}>();
 
   async function onOpenGallery() {
     // No permissions request is necessary for launching the image library
@@ -26,7 +26,7 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
         mediaType: 'photo',
         quality: 1,
       });
-      setFieldValue('images', [...images, result.assets[0].uri]);
+      setFieldValue('images', [...images, result.assets?.[0].uri]);
       setIsLoadingPhoto(false);
     } catch (error) {
       setIsLoadingPhoto(false);
@@ -37,9 +37,12 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
   async function onOpenCamera() {
     try {
       setIsLoadingPhoto(true);
-      const result = await ImagePicker.launchCamera();
+      const result = await ImagePicker.launchCamera({
+        mediaType: 'photo',
+        quality: 1,
+      });
 
-      setFieldValue('images', [...images, result.assets[0].uri]);
+      setFieldValue('images', [...images, result.assets?.[0].uri]);
       setIsLoadingPhoto(false);
     } catch (error) {
       setIsLoadingPhoto(false);
@@ -57,7 +60,7 @@ const ButtonAddPhoto: FC<IButtonAddPhotoProps> = ({setIsLoadingPhoto}) => {
   }
 
   function onOpenActionSheet() {
-    actionRef.current.show();
+    actionRef.current?.show();
   }
 
   return (

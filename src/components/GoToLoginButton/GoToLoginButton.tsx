@@ -7,6 +7,7 @@ import s from './styles';
 import {CompositeNavigationWithRootNavigatorType} from '../../navigation/RootNavigator/types';
 import {AuthStackNavigatorParamList} from '../../navigation/AuthNavigator/types';
 import {AppStackNavigatorParamList} from '../../navigation/AppNavigator/types';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 interface IGoToLoginButtonProps {
   resetAction?: () => void;
@@ -16,8 +17,7 @@ const GoToLoginButton: FC<IGoToLoginButtonProps> = ({resetAction}) => {
   const navigation =
     useNavigation<
       CompositeNavigationWithRootNavigatorType<
-        | AuthStackNavigatorParamList<'Auth'>
-        | AppStackNavigatorParamList<'MainApp'>
+        StackNavigationProp<AuthStackNavigatorParamList, 'Login'>
       >
     >();
 

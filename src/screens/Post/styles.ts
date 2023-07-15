@@ -1,12 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {CALL_BUTTON_HEIGHT, TAB_BAR_HEIGHT_SIZE} from '../../styles/dimensions';
 import colors from '../../styles/colors';
-import {TAB_BAR_HEIGHT_SIZE} from '../../styles/dimensions';
 
 const styles = StyleSheet.create({
   container: {flex: 1},
-  contentContainer: {
-    marginBottom: TAB_BAR_HEIGHT_SIZE + 60,
-  },
+  contentContainer: {paddingBottom: TAB_BAR_HEIGHT_SIZE + CALL_BUTTON_HEIGHT},
   titleAndPriceContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontSize: 16,
     fontWeight: '700',
-    color: 'white',
+    color: colors.white,
   },
   timeAndLocation: {
     flexDirection: 'row',
@@ -44,7 +42,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontSize: 16,
     fontWeight: '700',
-    color: 'white',
+    color: colors.white,
   },
   descriptionContainer: {
     width: '100%',

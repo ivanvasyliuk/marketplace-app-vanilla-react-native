@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Touchable from '../../../components/Touchable/Touchable';
 import UserImage from '../../../components/UserImage/UserImage';
+import {IChatModel} from '../../../stores/Chats/ChatModel';
 import colors from '../../../styles/colors';
 import s from './styles';
 
-const ChatLeftHeader = ({chat}) => {
+interface IChatLeftHeaderProps {
+  chat: IChatModel;
+}
+
+const ChatLeftHeader: FC<IChatLeftHeaderProps> = ({chat}) => {
   const navigation = useNavigation();
   return (
     <View style={s.container}>

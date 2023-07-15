@@ -5,7 +5,7 @@ import s from './styles';
 
 interface IDotsCarouselProps {
   index: number;
-  list: any[];
+  list: string[];
 }
 
 const DotsCarousel: FC<IDotsCarouselProps> = ({index, list}) => {

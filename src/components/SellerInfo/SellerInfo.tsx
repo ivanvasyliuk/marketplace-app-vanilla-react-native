@@ -4,11 +4,12 @@ import {useNavigation} from '@react-navigation/native';
 import Touchable from '../Touchable/Touchable';
 import {useStore} from '../../stores/createStore';
 import UserImage from '../UserImage/UserImage';
+import {IUserModel} from '../../stores/users/UserModel';
 import screens from '../../navigation/screens';
 import s from './styles';
 
 interface ISellerInfoProps {
-  owner: any;
+  owner: IUserModel;
 }
 
 const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
@@ -29,9 +30,9 @@ const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
   }
 
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={s.container}>
       <View style={s.avatarContainer}>
-        <UserImage image={owner.avatar} size={48} />
+        <UserImage image={owner.avatar || undefined} size={48} />
       </View>
       <View>
         <Text>{owner.fullName}</Text>

@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native";
-import colors from "../../../styles/colors";
+import {StyleSheet} from 'react-native';
+import colors from '../../../styles/colors';
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     borderTopWidth: StyleSheet.hairlineWidth * 2,
     borderBottomWidth: StyleSheet.hairlineWidth * 2,
     borderTopColor: colors.border,
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 16,
     marginBottom: 24,
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: colors.white,
   },
   touchableContainer: {
@@ -28,20 +28,19 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: 44,
     height: 44,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   addIcon: {
     color: colors.gray,
   },
   imagesList: {
-    flexDirection: "row",
-    justifyContent: "center",
-    flexWrap: "wrap",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   flatList: {
-    flexDirection: "row",
-    backgroundColor: "red",
+    flexDirection: 'row',
   },
   image: {
     borderWidth: StyleSheet.hairlineWidth * 2,
@@ -54,9 +53,9 @@ const styles = StyleSheet.create({
   },
 
   loaderContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 44,
     height: 44,
     marginHorizontal: 2,

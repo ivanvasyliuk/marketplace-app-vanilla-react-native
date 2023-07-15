@@ -1,7 +1,7 @@
 import React, {MutableRefObject, useEffect, useRef} from 'react';
 import {ScrollView, View} from 'react-native';
 import {observer} from 'mobx-react';
-import {Formik, FormikProps} from 'formik';
+import {Formik, FormikHelpers, FormikProps} from 'formik';
 import * as yup from 'yup';
 import Title from '../../components/Title/Title';
 import PriceInput from '../../components/PriceInput/PriceInput';
@@ -39,10 +39,13 @@ const CreatePostScreen = () => {
     >();
   const formRef = useRef<FormikProps<Partial<IProductModel>>>(null);
 
-  function onSubmit(values: Partial<IProductModel>, {resetForm}) {
+  function onSubmit(
+    values: Partial<IProductModel>,
+    actions: FormikHelpers<Partial<IProductModel>>,
+  ) {
     store.products.ownStore.createProduct.run(values);
     navigation.goBack();
-    resetForm();
+    actions.resetForm();
   }
   useEffect(() => {
     navigation.setParams({onSubmit: () => formRef.current?.handleSubmit()});
@@ -59,9 +62,10 @@ const CreatePostScreen = () => {
         >
           {({handleChange, handleBlur, handleSubmit, values}) => (
             <View>
-              <Title title="Key information" />
               <View style={s.keyInpormationContaine}>
+                <Title title="Key information" />
                 <MainInputField placeholder="Title" name="title" />
+                <Title title="Description" />
                 <MainInputField
                   placeholder="Description"
                   style={s.descriptionInput}
@@ -69,9 +73,7 @@ const CreatePostScreen = () => {
                   name="description"
                 />
               </View>
-              <Title title="Photos" />
               <Photos />
-              <Title title="Price" />
               <PriceInput />
             </View>
           )}

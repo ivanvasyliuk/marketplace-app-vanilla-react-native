@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import AddPostButton from '../../components/svg/AddPostButton';
 import colors from '../../styles/colors';
 
-const TabBarButton = ({}) => {
+const TabBarButton = () => {
   return (
     <View style={styles.container}>
       <AddPostButton />

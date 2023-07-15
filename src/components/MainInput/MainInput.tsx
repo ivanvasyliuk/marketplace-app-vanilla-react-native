@@ -28,7 +28,8 @@ const MainInput: FC<IMainInputProps> = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const hasError: boolean = !!errors[name] && !!touched[name];
+  const hasError: boolean = !!errors[name];
+  const hasTouched: boolean = !!errors[name] && !!touched[name];
 
   return (
     <View style={s.container}>
@@ -37,7 +38,7 @@ const MainInput: FC<IMainInputProps> = ({
           s.containerInput,
           style,
           isFocused && s.focusedInput,
-          hasError && s.errorInput,
+          hasTouched && s.errorInput,
         ]}>
         <TextInput
           {...props}
@@ -48,8 +49,8 @@ const MainInput: FC<IMainInputProps> = ({
         />
       </View>
       <View style={s.inEnd}>
-        <Text style={[hasError ? s.redErrorText : s.grayErrorText]}>
-          {`${errors[name] && errors[name]}`}
+        <Text style={[hasTouched ? s.redErrorText : s.grayErrorText]}>
+          {hasError && `${errors[name] && errors[name]}`}
         </Text>
       </View>
     </View>

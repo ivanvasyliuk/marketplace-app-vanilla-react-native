@@ -63,11 +63,17 @@ const styles = StyleSheet.create({
   },
 
   lastMessageLabel: {
+    marginRight: 40,
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 21,
     color: colors.gray,
   },
+  iconRight: {
+    position: 'absolute',
+    right: 20,
+  },
+  messagesContainer: {flex: 1},
 });
 export default styles;

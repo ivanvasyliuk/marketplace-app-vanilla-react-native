@@ -26,7 +26,8 @@ import colors from '../../styles/colors';
 import s from './styles';
 
 const PostScreen = () => {
-  const [allDescriptionVisible, setAllDescriptionVisible] = useState(false);
+  const [allDescriptionVisible, setAllDescriptionVisible] =
+    useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
   const route =
     useRoute<RouteProp<PostStackNavigatorParamList, 'PostDetails'>>();
@@ -84,10 +85,10 @@ const PostScreen = () => {
         isOwnerPost={isOwnerPost}
         onShare={onShare}
       />
-      <ScrollView style={s.contentContainer}>
+      <ScrollView contentContainerStyle={s.contentContainer}>
         <View>
-          <ImagesCarousel list={product.photos} setIndex={setIndex} />
-          <DotsCarousel list={product.photos} index={index} />
+          <ImagesCarousel list={product.photos!} setIndex={setIndex} />
+          <DotsCarousel list={product.photos!} index={index} />
           <LinearGradient
             colors={['transparent', 'rgba(0, 0, 0, 0.2)', 'rgba(0,0,0,0.6)']}
             style={s.titleAndPriceContainer}>
@@ -118,9 +119,9 @@ const PostScreen = () => {
             <Touchable
               isOpacity
               onPress={() => setAllDescriptionVisible(!allDescriptionVisible)}>
-              {product.description.length > 145 && (
+              {product.description!.length > 145 && (
                 <Text style={s.readMore}>
-                  {allDescriptionVisible ? 'Hide more...' : 'Read more...'}
+                  {allDescriptionVisible ? 'Hide more' : 'Read more...'}
                 </Text>
               )}
             </Touchable>

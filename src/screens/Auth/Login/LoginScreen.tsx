@@ -42,7 +42,7 @@ const LoginScreen = () => {
   async function onSubmit({email, password}: onSubmitParamsProps) {
     await store.auth.login.run({email, password});
     if (!!route.params.resetAction) {
-      resetAction();
+      resetAction?.();
     }
     navigation.getParent()?.dispatch(state => {
       const routes = state.routes.filter(r => r.name !== screens.Auth);

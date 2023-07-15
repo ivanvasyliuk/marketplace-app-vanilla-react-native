@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
-import {TAB_BAR_HEIGHT_SIZE} from '../../styles/dimensions';
+import {CALL_BUTTON_HEIGHT, TAB_BAR_HEIGHT_SIZE} from '../../styles/dimensions';
 
 const styles = StyleSheet.create({
   callAndMessageContainer: {
+    height: CALL_BUTTON_HEIGHT,
     flexDirection: 'row',
     position: 'absolute',
     right: 0,

@@ -16,10 +16,6 @@ export const ViewerStore = types
     userModel: types.maybe(ViewerModel),
   })
   .views(store => ({
-    get initials() {
-      const array = store.userModel.fullName.split(' ');
-      return array.map(letter => letter[0]).concat();
-    },
     get userId() {
       return store.userModel?.id;
     },

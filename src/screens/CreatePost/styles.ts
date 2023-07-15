@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   },
   descriptionInput: {
     height: 136,
-    marginTop: 24,
     justifyContent: 'flex-start',
     padding: 16,
   },

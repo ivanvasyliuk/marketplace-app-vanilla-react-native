@@ -30,7 +30,8 @@ const Input: FC<IInputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<TextInput>(null);
-  const hasError: boolean = !!errors[name] && !!touched[name];
+  const hasError: boolean = !!errors[name];
+  const hasTouched: boolean = !!errors[name] && !!touched[name];
   return (
     <TouchableWithoutFeedback onPress={() => inputRef.current?.focus()}>
       <View style={s.container}>
@@ -38,9 +39,9 @@ const Input: FC<IInputProps> = ({
           style={[
             s.inputContainer,
             isFocused && s.focusedInput,
-            hasError && s.errorInput,
+            hasTouched && s.errorInput,
           ]}>
-          <Text style={[s.label, hasError && s.errorLabel]}>{label}</Text>
+          <Text style={[s.label, hasTouched && s.errorLabel]}>{label}</Text>
           <TextInput
             ref={inputRef}
             {...props}
@@ -48,7 +49,7 @@ const Input: FC<IInputProps> = ({
             onBlur={() => setIsFocused(false)}
             onFocus={() => setIsFocused(true)}
           />
-          {hasError && (
+          {hasTouched && (
             <AntDesign
               style={s.warningIcon}
               name="exclamationcircle"
@@ -56,8 +57,8 @@ const Input: FC<IInputProps> = ({
             />
           )}
         </View>
-        <Text style={[hasError ? s.redErrorText : s.grayErrorText]}>
-          {`${errors[name] && errors[name]}`}
+        <Text style={[hasTouched ? s.redErrorText : s.grayErrorText]}>
+          {hasError && `${errors[name] && errors[name]}`}
         </Text>
       </View>
     </TouchableWithoutFeedback>
