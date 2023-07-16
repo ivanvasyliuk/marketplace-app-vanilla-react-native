@@ -1,6 +1,6 @@
-import {FormikErrors, FormikTouched} from 'formik';
 import React, {FC, useState} from 'react';
 import {Text, TextInput, TextInputProps, View} from 'react-native';
+import {FormikErrors, FormikTouched} from 'formik';
 import s from './styles';
 
 interface IMainInputProps extends TextInputProps {

@@ -1,16 +1,9 @@
 import React, {useEffect, useRef} from 'react';
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  KeyboardAvoidingViewBase,
-  Platform,
-  ScrollView,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {observer} from 'mobx-react';
 import {Formik, FormikHelpers, FormikProps} from 'formik';
 import * as yup from 'yup';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Title from '../../components/Title/Title';
 import PriceInput from '../../components/PriceInput/PriceInput';
 import {useStore} from '../../stores/createStore';
@@ -59,35 +52,37 @@ const CreatePostScreen = () => {
   }, []);
 
   return (
-    <View style={s.container}>
-      <ScrollView contentContainerStyle={s.contentContainer}>
-        <View style={s.contentContainer}>
-          <Formik
-            innerRef={formRef}
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            // validationSchema={validationSchema}
-          >
-            {() => (
-              <View>
-                <View style={s.keyInpormationContaine}>
-                  <Title title="Key information" />
-                  <MainInputField placeholder="Title" name="title" />
-                  <MainInputField
-                    placeholder="Description"
-                    style={s.descriptionInput}
-                    multiline={true}
-                    name="description"
-                  />
+    <KeyboardAwareScrollView>
+      <View style={s.container}>
+        <ScrollView contentContainerStyle={s.contentContainer}>
+          <View style={s.contentContainer}>
+            <Formik
+              innerRef={formRef}
+              initialValues={initialValues}
+              onSubmit={onSubmit}
+              // validationSchema={validationSchema}
+            >
+              {() => (
+                <View>
+                  <View style={s.keyInpormationContaine}>
+                    <Title title="Key information" />
+                    <MainInputField placeholder="Title" name="title" />
+                    <MainInputField
+                      placeholder="Description"
+                      style={s.descriptionInput}
+                      multiline={true}
+                      name="description"
+                    />
+                  </View>
+                  <Photos />
+                  <PriceInput />
                 </View>
-                <Photos />
-                <PriceInput />
-              </View>
-            )}
-          </Formik>
-        </View>
-      </ScrollView>
-    </View>
+              )}
+            </Formik>
+          </View>
+        </ScrollView>
+      </View>
+    </KeyboardAwareScrollView>
   );
 };
 

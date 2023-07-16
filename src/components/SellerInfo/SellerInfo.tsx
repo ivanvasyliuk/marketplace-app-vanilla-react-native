@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
 import {Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
 import Touchable from '../Touchable/Touchable';
 import {useStore} from '../../stores/createStore';
 import UserImage from '../UserImage/UserImage';
 import {IUserModel} from '../../stores/users/UserModel';
+import {PostNavigatorNavigationPropType} from '../../navigation/PostNavigator/types';
+import {AppTabNavigatorNavigationPropType} from '../../navigation/AppTabNavigator/types';
 import screens from '../../navigation/screens';
 import s from './styles';
-import {CompositeNavigationWithAppStackNavigatorType} from '../../navigation/AppNavigator/types';
 
 interface ISellerInfoProps {
   owner: IUserModel;
@@ -15,7 +16,12 @@ interface ISellerInfoProps {
 
 const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
   const navigation =
-    useNavigation<CompositeNavigationWithAppStackNavigatorType>();
+    useNavigation<
+      CompositeNavigationProp<
+        PostNavigatorNavigationPropType<'PostDetails'>,
+        AppTabNavigatorNavigationPropType<'ProfileTab'>
+      >
+    >();
   const store = useStore();
 
   function onPress() {
@@ -26,7 +32,7 @@ const SellerInfo: FC<ISellerInfoProps> = ({owner}) => {
       });
     } else {
       navigation.navigate(screens.Profile, {
-        owner: {owner: owner},
+        owner: owner,
       });
     }
   }

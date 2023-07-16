@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
+import {TextInputProps} from 'react-native';
 import {useFormikContext} from 'formik';
 import MainInput from '../MainInput/MainInput';
-import {TextInputProps} from 'react-native';
 
 interface IMainInputFieldProps extends TextInputProps {
   name: string;

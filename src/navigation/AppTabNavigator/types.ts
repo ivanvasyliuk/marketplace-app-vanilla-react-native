@@ -1,4 +1,8 @@
 import {
+  BottomTabNavigationProp,
+  BottomTabScreenProps,
+} from '@react-navigation/bottom-tabs';
+import {
   CompositeNavigationProp,
   NavigationProp,
   NavigatorScreenParams,
@@ -23,3 +27,7 @@ export type AppTabNavigatorParamList = {
 export type CompositeNavigationWithAppTabNavigatorType<
   T extends NavigationProp<ParamListBase, string, any, any>,
 > = CompositeNavigationProp<T, StackNavigationProp<AppTabNavigatorParamList>>;
+
+export type AppTabNavigatorNavigationPropType<
+  TScreenName extends keyof AppTabNavigatorParamList,
+> = BottomTabNavigationProp<AppTabNavigatorParamList, TScreenName>;

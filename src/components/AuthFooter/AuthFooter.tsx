@@ -1,9 +1,9 @@
-import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {FC} from 'react';
 import {GestureResponderEvent, Text, View} from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import screens from '../../navigation/screens';
 import Touchable from '../Touchable/Touchable';
+import screens from '../../navigation/screens';
 import s from './styles';
 
 interface IAuthFooterProps {

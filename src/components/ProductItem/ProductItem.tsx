@@ -1,13 +1,13 @@
 import React, {FC} from 'react';
-import {observer} from 'mobx-react';
 import {Image, Text, View} from 'react-native';
+import {observer} from 'mobx-react';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import screens from '../../navigation/screens';
 import Touchable from '../Touchable/Touchable';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
-import s from './styles';
 import {IProductModel} from '../../stores/Products/ProductModel';
 import {BrowseStackNavigatorParamList} from '../../navigation/BrowseNavigator/types';
+import s from './styles';
 
 interface IProductItemProps {
   product: IProductModel;

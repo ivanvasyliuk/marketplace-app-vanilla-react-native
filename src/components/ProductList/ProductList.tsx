@@ -1,15 +1,10 @@
 import React, {FC} from 'react';
-import {
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  RefreshControl,
-  View,
-} from 'react-native';
+import {NativeScrollEvent, NativeSyntheticEvent, View} from 'react-native';
 import {observer} from 'mobx-react';
 import {FlashList} from '@shopify/flash-list';
 import ProductItem from '../ProductItem/ProductItem';
-import s from './styles';
 import {IProductModel} from '../../stores/Products/ProductModel';
+import s from './styles';
 
 interface IProductListProps {
   list: IProductModel[];

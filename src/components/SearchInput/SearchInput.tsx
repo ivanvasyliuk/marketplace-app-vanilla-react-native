@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Touchable from '../Touchable/Touchable';
-import s from './styles';
 import {TextInputProps} from 'react-native';
+import s from './styles';
 
 const debounce = require('lodash.debounce');
 
@@ -21,7 +21,7 @@ interface ISearchInputProps extends TextInputProps {
 
 const SearchInput: FC<ISearchInputProps> = ({sizes, style, ...props}) => {
   const [text, setText] = useState<string>('');
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const navigation = useNavigation();
   const inputRef = useRef<TextInput>();
 
@@ -42,7 +42,7 @@ const SearchInput: FC<ISearchInputProps> = ({sizes, style, ...props}) => {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={() => inputRef.current.focus()}>
+    <TouchableWithoutFeedback onPress={() => inputRef.current?.focus()}>
       <View style={[s.container, isFocused && s.containerOnFocus, style]}>
         <AntDesign
           style={[s.searchIcon, isFocused && s.focusedIcon]}

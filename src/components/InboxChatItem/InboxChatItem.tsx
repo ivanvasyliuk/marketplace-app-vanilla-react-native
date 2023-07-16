@@ -1,11 +1,13 @@
 import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import {observer} from 'mobx-react';
-import {useNavigation} from '@react-navigation/native';
+import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
 import {format, isToday, isYesterday} from 'date-fns';
 import {IChatModel} from '../../stores/Chats/ChatModel';
 import UserImage from '../UserImage/UserImage';
 import Touchable from '../Touchable/Touchable';
+import {InboxNavigatorNavigationPropType} from '../../navigation/InboxNavigator/types';
+import {AppNavigatorNavigationPropType} from '../../navigation/AppNavigator/types';
 import screens from '../../navigation/screens';
 import s from './styles';
 
@@ -14,7 +16,13 @@ interface IInboxChatItemProps {
 }
 
 const InboxChatItem: FC<IInboxChatItemProps> = ({chat}) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<
+      CompositeNavigationProp<
+        InboxNavigatorNavigationPropType<'Inbox'>,
+        AppNavigatorNavigationPropType<'Chat'>
+      >
+    >();
 
   let date = new Date(chat.updatedAt);
 

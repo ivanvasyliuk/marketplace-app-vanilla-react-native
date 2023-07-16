@@ -23,3 +23,7 @@ export type AppStackNavigatorParamList = {
 export type CompositeNavigationWithAppStackNavigatorType<
   T extends NavigationProp<ParamListBase, string, any, any>,
 > = CompositeNavigationProp<T, StackNavigationProp<AppStackNavigatorParamList>>;
+
+export type AppNavigatorNavigationPropType<
+  TScreenName extends keyof AppStackNavigatorParamList,
+> = StackNavigationProp<AppStackNavigatorParamList, TScreenName>;

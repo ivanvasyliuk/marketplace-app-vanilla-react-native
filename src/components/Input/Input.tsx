@@ -1,7 +1,12 @@
-import {FormikErrors, FormikTouched} from 'formik';
 import React, {FC, useRef, useState} from 'react';
-import {TextInputProps} from 'react-native';
-import {View, TextInput, Text, TouchableWithoutFeedback} from 'react-native';
+import {
+  View,
+  TextInput,
+  Text,
+  TouchableWithoutFeedback,
+  TextInputProps,
+} from 'react-native';
+import {FormikErrors, FormikTouched} from 'formik';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import s from './styles';
 

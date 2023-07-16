@@ -1,13 +1,12 @@
 import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import screens from '../../navigation/screens';
-import Touchable from '../Touchable/Touchable';
-import s from './styles';
-import {CompositeNavigationWithRootNavigatorType} from '../../navigation/RootNavigator/types';
-import {AuthStackNavigatorParamList} from '../../navigation/AuthNavigator/types';
-import {AppStackNavigatorParamList} from '../../navigation/AppNavigator/types';
 import {StackNavigationProp} from '@react-navigation/stack';
+import Touchable from '../Touchable/Touchable';
+import {AuthStackNavigatorParamList} from '../../navigation/AuthNavigator/types';
+import {CompositeNavigationWithRootNavigatorType} from '../../navigation/RootNavigator/types';
+import screens from '../../navigation/screens';
+import s from './styles';
 
 interface IGoToLoginButtonProps {
   resetAction?: () => void;
